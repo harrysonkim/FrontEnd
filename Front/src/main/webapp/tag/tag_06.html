@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>하이퍼링크 태그</h1>
+<h3>a</h3>
+
+<hr>
+
+<!-- href 속성(Attribute)이 있어야 하이퍼링크로 동작 -->
+<a>링크</a>
+
+<br>
+
+<hr>
+
+<div id="top">
+	<h1>여기가 TOP!!</h1>
+	<a href="#bottom">BOTTOM으로 가기</a>
+</div>
+
+<hr>
+
+
+<!-- href속성 부여하기 -->
+<a href="">현재페이지로 링크</a> 
+<br>
+<a href="https://www.google.com/?hl=ko">Google 링크</a>
+<br>
+<a href="https://www.naver.com/" target="_blank">Naver 링크(새 탭)</a>
+<br>
+<a href="https://www.naver.com/" target="_self">Naver 링크(현재 탭)</a>
+
+<hr>
+
+<!-- 절대경로(Absolute Path URL) -->
+<!-- '도메인 주소'를 포함한 URL을 뜻한다 -->
+
+<!-- 다른 사이트로 하이퍼링크를 적용할 때 사용 -->
+<a href="https://m.blog.naver.com/PostView.naver?blogId=lqud&logNo=223003938541&proxyReferer=" 
+ target="_blank">절대경로 표기</a>
+<br>
+<!-- 상대 경로 URL 표현법 -->
+<!-- Relative Path URL -->
+<!-- 도메인 주소를 생략하고 자원(파일)의 경로만 적는 URL -->
+<!-- 같은 사이트 내에서 다른 페이지로 이동할 때 사용 -->
+
+<!-- 사이트 기준점이 자기 자신이 된다 -->
+
+<!-- 메뉴를 구성할 때 사용할 수 있다. -->
+<ul>
+
+	<!-- 	webapp까지 찾아오고 폴더, 파일이름 지정 -->
+	<li><a href="/tag/tag_01.html">tag_01.html로 이동</a></li>
+	<!-- 	알아서 파일이름 찾아서 이동 -->
+	<li><a href="./tag_02.html">tag_02.html로 이동</a></li>
+	<!-- 	파일이름만 찾아서 이동 -->
+	<li><a href="tag_03.html">tag_03.html로 이동</a></li>
+	<!-- 	에러, 페이지 404 -->
+	<li><a href="../tag_04.html">tag_04.html로 이동 (에러)</a></li>
+	<!-- 	파일이름만 찾아서 이동 -->
+	<li><a href="../Test.html">test로 이동</a></li>
+
+</ul>
+
+<!-- 경로 지정 문자 -->
+
+<!-- / => 디렉토리(폴더)를 나타내는 기호-->
+<!-- 상대경로를 표현할 때 제일 앞 글자로 사용되면 -->
+<!-- 루트 디렉토리(Root Directory)를 표현 -->
+<!-- 도메인의 최상위 디렉토리를 나타낸다 -->
+<a href="/tag/tag_05.html"> / (최상위root 디렉토리)tag_05.html로 이동</a>
+
+<br><br>
+
+<!-- . -->
+<!-- 현재 디렉토리를 표현하는 기호 -->
+<!-- 현제 페이지(파일)이 보관된 폴더 -->
+<!-- 지정 문자 없이 곧바로 파일 이름을 써도 -->
+<!-- 현제 디렉토리로 저장 -->
+<a href="./tag_05.html"> ./ (해당 파일이 보관된 폴더) tag_05.html로 이동</a>
+<br>
+<a href="tag_05.html"> ./ 없이 (해당 파일이 보관된 폴더) tag_05.html로 이동</a>
+
+<br><br>
+
+<!-- .. => -->
+<!-- 부모 디렉토리를 나타내는 기호 -->
+<!-- 현재 페이지(파일)의 상위 폴더를 나타낸다 -->
+<a href="../test.html"> ../ (상위폴더에서) test.html로 이동</a>
+
+<!-- -------------------------------------------------------------------------------------- -->
+<hr>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id odio egestas, bibendum ligula id, rhoncus metus. Fusce ligula sem, tempus vitae ex vel, vehicula viverra metus. Vestibulum in placerat nisl, eget auctor dolor. Nam dapibus at nibh vel viverra. Maecenas ac nulla et augue rhoncus tempor sit amet ac metus. Ut vulputate augue in metus tincidunt semper. Nam molestie, magna vitae egestas vestibulum, nisl turpis hendrerit sem, at mollis quam lorem sit amet purus. Nullam sed eros nulla. Pellentesque at ex vitae purus molestie ornare. Vestibulum semper massa lectus. Praesent iaculis urna quis enim commodo, quis blandit lacus posuere.</p>
+
+<p>Mauris pellentesque lorem vitae dui vulputate, ullamcorper tincidunt neque feugiat. Vivamus justo augue, mollis ac lorem sit amet, blandit bibendum risus. Maecenas eleifend risus metus, nec finibus metus luctus a. Vestibulum hendrerit mi lacus, vitae bibendum tellus scelerisque nec. Donec pulvinar, orci scelerisque ultricies pharetra, eros nisi ultricies mi, ut mollis ligula nisl vel leo. Aenean vel viverra nulla. Integer ligula nisl, blandit in mattis eget, ultrices vitae urna. Aenean egestas tellus nec lectus eleifend, at bibendum eros fermentum. Cras interdum mauris quis arcu faucibus, nec blandit est interdum. Suspendisse sed mi quis metus suscipit volutpat. Donec non velit scelerisque metus ultrices auctor eu sit amet purus. Nulla et turpis vitae dui tincidunt pellentesque a sed nibh. Aliquam erat volutpat. Nam at dolor sit amet magna sagittis ornare.</p>
+
+<p>Vivamus tempor ac odio vitae scelerisque. Maecenas blandit est id viverra faucibus. Duis sapien arcu, tincidunt id feugiat ut, tempor ultrices erat. In consectetur sem quis nulla porttitor tincidunt. Nam fermentum vitae massa id viverra. Ut eget porttitor quam. Suspendisse quis dictum est. Quisque sit amet arcu eget diam convallis elementum. Curabitur fermentum dolor in lorem pharetra, et rhoncus nunc tempus. Curabitur faucibus ante arcu, ac suscipit lorem laoreet vel. Duis vitae varius leo, vel faucibus felis. Nunc rhoncus tellus faucibus nunc aliquam, tristique volutpat nisi pulvinar. Ut eget nulla laoreet, malesuada nisi finibus, pellentesque tortor. Mauris posuere lacus eu finibus faucibus. Mauris gravida hendrerit nisl, eu dapibus sem hendrerit non.</p>
+
+<p>Nulla vel est in dui dictum tempus pretium a augue. Morbi quis convallis lectus. Aliquam rutrum enim augue, et facilisis nisi blandit ut. Praesent aliquam augue eget lectus iaculis aliquet. Phasellus a pretium mi. Praesent purus elit, gravida ut pretium non, maximus a neque. Ut rhoncus viverra risus, in convallis lacus congue nec. Vivamus neque urna, dapibus et massa eget, maximus laoreet risus. Mauris id mi mauris. Etiam fringilla sem non mi laoreet, eu sagittis lectus porttitor. Pellentesque commodo lectus ut lectus pretium, eget aliquam libero volutpat. Phasellus sagittis congue porttitor.</p>
+
+<p>Suspendisse eu dictum massa. In et euismod erat, non elementum metus. Nam non aliquam urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sed lobortis nunc. In eget luctus nunc. Praesent mattis, velit a ullamcorper elementum, justo ante porta velit, ac pharetra lectus enim ac lacus. Etiam condimentum leo et tellus venenatis lobortis. Duis malesuada risus a ex semper, eget sodales eros luctus. Fusce vestibulum, purus eget suscipit vestibulum, lorem nisl maximus tortor, at pellentesque nisi neque et elit. Aenean consectetur sollicitudin augue, placerat ultrices arcu consectetur vitae. Morbi vestibulum elementum libero et venenatis. Nunc elit odio, rutrum quis dignissim vel, convallis non urna. Duis non dolor et sem rutrum tempor a sed velit.</p>
+
+
+<div id = "bottom">
+	<h1>여기가 BOTTOM!</h1>
+</div>
+
+<a href="#top">TOP으로 가기</a>
+
+
+
+
+
+
+</body>
+</html>

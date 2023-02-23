@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+/* CSS주석 */
+/* <table> <th> <td> 태그에 스타일 지정 */
+caption,table, th, td {
+	/* 테두리를 적용 */
+	/* 	굵기 선스타일 선의색상 설정 */
+	border: 1px solid white;
+	/* 	겹쳐지는 부분에 대한 설정 */
+	/* collapse 합쳐서 한줄로! */
+	border-collapse: collapse;
+	padding : 5px;
+	text-align: center;
+	background: black;
+	color: white;
+	font-family: fantasy;
+	text-align: center
+}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>table, tr, th, td TEST</h1>
+
+	<table>
+		<tr>
+			<th>\</th>
+			<th>월요일</th>
+			<th>화요일</th>
+			<th>수요일</th>
+			<th>목요일</th>
+			<th>금요일</th>
+		</tr>
+		<tr>
+			<th>메인</th>
+			<td>직화 간장 물고기</td>
+			<td>크림 체몰레 치킨</td>
+			<td>허브 목살 구이</td>
+			<td>양념치킨</td>
+			<td>한방보쌈</td>
+		</tr>
+		<tr>
+			<th>서브</th>
+			<td>인도식 토마토커리</td>
+			<td>로제 파스타</td>
+			<td>꽃게 유산슬</td>
+			<td>토마토 파스타</td>
+			<td>로제 떡볶이</td>
+		</tr>
+		<tr>
+			<th>가격</th>
+			<td>10,000</td>
+			<td>12,000</td>
+			<td>15,000</td>
+			<td>13,000</td>
+			<td>12,500</td>
+		</tr>
+
+	</table>
+
+	<hr>
+
+	<h1>caption / thead / tbody / tfoot Test</h1>
+
+	<table>
+
+	<!-- 테이블의 설명 (이름) -->
+	<caption >메뉴판</caption>
+
+		<!-- thead : 테이블의 머릿글, 최상단행으로 고정 -->
+		<thead>
+			<tr>
+				<th>\</th>
+				<th>월요일</th>
+				<th>화요일</th>
+				<th>수요일</th>
+				<th>목요일</th>
+				<th>금요일</th>
+			</tr>
+		</thead>
+
+		<!-- tbody : 테이블의 본문, thaed와 tfoot 사이 고정 -->
+		<tbody>
+			<tr>
+				<th>메인</th>
+				<td>직화 간장 물고기</td>
+				<td>크림 체몰레 치킨</td>
+				<td>허브 목살 구이</td>
+				<td>양념치킨</td>
+				<td>한방보쌈</td>
+			</tr>
+			<tr>
+				<th>서브</th>
+				<td>인도식 토마토커리</td>
+				<td>로제 파스타</td>
+				<td>꽃게 유산슬</td>
+				<td>토마토 파스타</td>
+				<td>로제 떡볶이</td>
+			</tr>
+		</tbody>
+
+		<!-- tfoot : 테이블의 바닥, 최하단행으로 고정 -->
+		<tfoot>
+			<tr>
+				<th>가격</th>
+				<td>10,000</td>
+				<td>12,000</td>
+				<td>15,000</td>
+				<td>13,000</td>
+				<td>12,500</td>
+			</tr>
+		</tfoot>
+
+	</table>
+
+
+
+
+
+
+
+</body>
+</html>

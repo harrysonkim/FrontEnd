@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	width: 100px;
+	height: 100px;
+	background-color: #ccc;
+	
+	/* 	모든 속성값이 변환에 1초가 걸리도록 설정 */
+/* 	transition: all 1s; */
+
+	/* width속성의 변화만 1초가 걸리도록 설정 */
+/* 	transition: width 5s; */
+
+	/* 	속성별로 변화에 걸리는 시간을 다르게 설정 */
+/* 	transition: width 0.3s, height 2s, background 3s; */
+
+/* 	transition: all 3s 1s ease-in; */
+
+	transition: 
+		width 500ms 1s ease, 
+		height 2s ease-in, 
+		background 3s linear;
+
+}
+
+div:hover {
+	width: 200px;
+	height: 200px;
+	background-color: #333;
+
+/* 	모든 속성의 변화에 1초가 걸리도록 설정 */
+/* 	:hover에 적용하면 mouseover에만 적용 */
+/* 	원래 설정으로 돌아갈 때 유지시간 적용X */
+/* 	transition: all 1s; */
+
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+	<h1>Transition속성</h1>
+	<hr>
+
+	<div></div>
+
+</body>
+</html>

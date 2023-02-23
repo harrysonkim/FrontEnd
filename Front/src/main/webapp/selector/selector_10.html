@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* 보여지는 화면의 첫번째 줄만 선택 */
+p::first-line {
+	color: blue;
+}
+
+/* 문장의 첫번째 글자만 선택 */
+p::first-letter {
+	color: red;
+	font-size: 20px;
+}
+
+/* ---------------------------------------------- */
+/* span태그의 앞부분에 가상 요소를 추가 */
+span::before {
+	/* 가상 요소에 적요될 컨텐츠(내용물) */
+/* 	content: "span <br> before"; */
+	content: "span \A before"; 
+	/* 	\A -> 개행문자(ASCII 10)를 나타낸다 */
+	
+	/* 	공백문자 처리방식 변경 */
+	white-space : pre;
+	
+	/* 가상요소에 CSS스타일 적용 가능 */
+	color : orange;
+	background-color: gray;
+	
+	/* 	수직정렬 */
+	vertical-align: middle;
+}
+
+/* ---------------------------------------------- */
+
+.new::after {
+	
+	content: "new";
+	
+	font-size: 10px;
+	background-color: #f66;
+	color: #fff;
+	
+	padding: 0 2px;
+	
+	border-radius: 5px;
+	
+}
+
+/* ---------------------------------------------- */
+
+/* 클래스 속성값으로 new가 없는 p태그 선택 */
+p :not(.new) {
+	background-color: #eee;
+}
+
+
+</style>
+
+
+
+
+
+</head>
+<body>
+
+	<h1>가상 선택자</h1>
+	<hr>
+	
+	<p class="new">첫번째(p)</p>
+	<span>두번째(span)</span>
+	<div class="new">세번째(div)</div>
+	<p>네번째(p). 두손을 하는 무엇이 산야에 싹이 하였으며, 
+	무엇을 아름다우냐? 맺어, 있는 있으며, 
+	봄날의 이는 가진 인생을 듣는다.</p>
+	
+	
+	
+	
+</body>
+</html>

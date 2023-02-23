@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tag_03</title>
+</head>
+<body>
+
+<h1>글자 관련 태그</h1>
+<h3>hn, p, blockquote</h3>
+<hr>
+
+<div style="font-size: 25px;">
+
+기본텍스트
+
+	<h1>heading1</h1>
+	<h2>heading2</h2>
+	<h3>heading3</h3>
+	<h4>heading4</h4>
+	<h5>heading5</h5>
+	<h6>heading6</h6>
+
+</div>
+
+<hr>
+
+<div>
+
+<!-- 개행이나 띄어쓰기 모두 한개의 공백으로 처리 -->
+<p>가나다라마<br>
+
+바사아자차<br>
+
+카타파하</p>
+
+<!-- br태그 : line break, 줄바꿈 태그 -->
+
+<hr>
+
+<p>마진 Test1</p>
+<p>마진 Test2</p>
+<p>마진 Test3</p>
+
+<!-- <p>태그는 상하 여백을 가지고 있다 -->
+<!-- 상하 여백은 다른 태그 요소를 밀어낸다 -->
+<p>마진 없는 <br> Test</p>
+
+<hr>
+
+<!-- 닫는 태그없이 다음 <p>태그가 나오면 안되지만, -->
+<!-- 문법에 맞진 않지만 브라우저가 알아서 수정 -->
+<p>닫히지 않은 p태그 Test
+<p>닫힌 p태그 Test</p>
+
+<hr>
+<p>AB&nbsp;&nbsp;&nbsp;CDE
+FGH&emsp;&emsp;&emsp;J&ensp;&ensp;&ensp;K</p>
+
+<!-- nbsp -->
+<!-- No Break SPace -->
+<!-- 개행 없이 띄어쓰기 한 칸 -->
+<!-- ensp -->
+<!-- emsp크기의 반절만큼 띄어쓰기한 칸 -->
+
+<!-- emsp -->
+<!-- EleMent SPace -->
+<!-- em크기(글자크기)만큼 띄어쓰기한 칸 -->
+
+<hr>
+
+<pre>
+A            BCD
+안       녕 하         세         요
+</pre>
+
+<pre>
+
+public class Test {
+
+	public  static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		
+		System.out.println("num : " + num);
+	}
+
+}
+
+</pre>
+
+<blockquote>"진짜 들여쓰기 상태에오?"</blockquote>
+
+
+
+
+</div>
+
+
+</body>
+</html>

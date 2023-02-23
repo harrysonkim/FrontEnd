@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.blue {color: blue;}
+.red {color: red;}
+
+.borderGray{border : 5px solid #ccc;}
+
+.size3 {font-size: 3em;}
+
+/* id선택자, class선택자 같은 태그에 동시에 적용 가능 */
+/* 같은 CSS스타일속은 충돌이 난다 */
+/* 적용 우선순위는 id가 높다 */
+#title {color: magenta;}
+
+
+
+</style>
+
+
+</head>
+<body>
+
+	<h1 id="title" class="blue borderGray">Class선택자</h1>
+	<hr>
+
+	<p class="blue">p 태그</p>
+	<span class="size3 red">span태그</span>
+
+	<div class="red">
+		div태그
+		<p class="warnText">div태그 내 p 태그</p>
+		안녕안녕
+	</div>
+
+</body>
+</html>

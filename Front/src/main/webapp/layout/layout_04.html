@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+div { width:  200px; height: 100px;}
+
+#div1 { border: 1px solid red;}
+#div2 { border: 1px solid green;}
+#div3 { border: 1px solid blue;}
+
+#div1 { float: left;}
+#div2 { float: right;}
+
+.clearfix {
+	clear: both;
+	
+/* 	컨텐츠 영역 제거 */
+	width: 0;
+	height: 0;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<h1>float속성을 적용</h1>
+<hr>
+
+<div id="div1"> DIV1 </div>
+<div id="div2"> DIV2 </div>
+
+<div class="clearfix">안녕하세요 clear입니다!</div>
+
+<div id="div3" style="clear: both;"> DIV3 </div>
+
+
+
+
+</body>
+</html>

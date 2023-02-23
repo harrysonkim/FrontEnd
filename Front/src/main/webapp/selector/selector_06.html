@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector_06.html</title>
+
+<style type="text/css">
+
+/*  title속성을 가지고 있는 모든 요소 선택 */
+/* [title] {color : red;} */
+
+/* div태그에 class속성을 가지고 있는 요소 선택 */
+/* div[class] { border: 1px solid green;} */
+
+/* class속성을 가지고 있는 모든 요소 선택 */
+/* [class] { font-family: 나눔고딕코딩, cursive; } */
+
+/* --------------------------------------------------------- */
+/* title 속성의 값이 "greething messaged"인 h1태그 선택 */
+/* h1[title="greeting message"] {border: 3px solid blue;} */
+/* --------------------------------------------------------- */
+/* title속성의 값중 greeting이 포함되어 있는 h1태그 선택 */
+/* h1[title~="greeting"] { text-decoration: underline;} */
+/* --------------------------------------------------------- */
+/* title속성의 값중 greeting이 포함되어 있는 h1태그 선택 */
+/* h1[class^="a"] { color: green; font-size: 30px;} */
+/* 처음이 아니라 중간에 있기 때문에 선택대상 없음 */
+/* h1[class^="te"] { color: green; font-size: 30px;} */
+/* --------------------------------------------------------- */
+/* calss에 끝나는 속성값으로 dd를 가진 h1태그를 선택 */
+/* h1[class$="dd"] { background: tomato;} */
+/* 마지막이 아니라 중간에 있기 때문에 선택대상 없음 */
+/* h1[class$="xt"] { background: tomato;} */
+/* --------------------------------------------------------- */
+/* calss에 속성값으로 "ex"를 포함하는 h1태그를 선택 */
+/* h1[class*="ex"] { text-decoration: line-through;} */
+/* calss에 속성값으로 "c s"를 포함하는 h1태그를 선택 */
+/* h1[class*="c s"] { text-decoration: line-through;} */
+/* --------------------------------------------------------- */
+/* calss에 속성값이 "t"와 같거나 "t-"로 시작하는 h1태그를 선택 */
+h1[class|="abc"] { color: purple;}
+/* --------------------------------------------------------- */
+
+</style>
+
+</head>
+<body>
+
+	<h1 class="abc text dd">Hello</h1>
+
+	<h1 class="fe abc st">안녕하세요</h1>
+
+	<h1 class="abc-css" title="greeting message">반가워요!</h1>
+
+	<div class>여기는 DIV!</div>
+
+</body>
+</html>

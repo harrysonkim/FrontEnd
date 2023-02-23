@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+.box{
+	width: 150px;
+	height: 50px;
+
+	color: red;
+	
+	border: 5px solid red;
+
+}
+
+/* ---------------------------------------------- */
+
+/* 요소의 위치속성 지정 */
+.absolute {
+
+	position: absolute;
+
+}
+
+#a1 {
+
+	top: 100px;
+	left: 50px;
+
+}
+
+#a2 {
+	right: 100px;
+	bottom: 100px;
+}
+/* -------------------------------------------------------- */
+#a4 {
+	top: 20px;
+	left: 20px;
+}
+
+#a3 {
+	right: 300px;
+	bottom: 200px;
+}
+/* -------------------------------------------------------- */
+.relative {
+	position: relative;
+}
+/* -------------------------------------------------------- */
+#r1 {
+	top: 100px;
+    left: 200px;
+}
+
+/* -------------------------------------------------------- */
+
+.fixed {
+	position: fixed;
+	
+	bottom: 0;
+	right: 0;
+}
+</style>
+</head>
+<body>
+
+
+<div id="a1" class="box absolute">절대 위치 박스1</div>
+<div id="a2" class="box absolute">절대 위치 박스2</div>
+
+<div id="a3" class="box absolute">
+	<div id="a4" class="box absolute">절대 위치 박스4</div>
+</div>
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus velit ac nisl venenatis, nec tincidunt justo interdum. Vestibulum non porttitor augue, vitae tincidunt nibh. Cras sed tristique nulla, vitae consequat arcu. Aliquam ac gravida massa, quis porta tortor. Praesent non scelerisque turpis. Vestibulum mollis sed neque sed luctus. Sed tempus dolor ac dui rhoncus, id imperdiet justo posuere. Proin malesuada ac sapien eget venenatis. Suspendisse varius nisl sed mauris rhoncus, euismod facilisis odio malesuada. Etiam ac tempus sem.
+
+Praesent vel viverra velit. Nullam ultrices mattis ullamcorper. Nam eget tristique lectus. Ut vitae pellentesque ligula. Mauris quis nisl sit amet nulla ornare placerat. Duis sodales mi metus, sit amet iaculis lectus tempor eget. Integer a lacinia elit, non vehicula est. Nulla faucibus lectus id tempor euismod. Maecenas volutpat eros ut erat ultrices lobortis. Cras id egestas sapien, vel vehicula est. Fusce dictum lectus venenatis auctor finibus. Integer laoreet viverra dictum. Phasellus maximus odio ut fermentum venenatis. Vivamus libero libero, iaculis id consequat ut, fringilla sed lorem.
+
+Aliquam consequat sagittis
+
+</p>
+
+<div id="r1" class="box relative">상대 위치 박스</div>
+
+<p> mi vitae aliquam. Curabitur ullamcorper tortor elit, non aliquet nulla rutrum sit amet. Sed mattis vel elit quis sollicitudin. Nulla risus leo, tempus non quam convallis, dapibus maximus orci. Mauris molestie eros eget erat ultrices egestas. Pellentesque cursus dictum tortor, sit amet pulvinar nulla eleifend ut. Praesent tempus eu urna vel porta. Phasellus fringilla, lorem dignissim ullamcorper bibendum, turpis purus auctor risus, quis ullamcorper turpis purus pharetra justo. Etiam eleifend, mauris quis dignissim feugiat, lorem nulla mattis ante, eget pharetra nunc lacus ultricies enim.
+
+Donec molestie nunc nunc, nec semper nibh lacinia ut. Etiam nibh nunc, malesuada et ligula in, ornare iaculis diam. Fusce augue magna, bibendum vulputate elit a, vulputate euismod nulla. Nam convallis auctor nunc, vitae porttitor nisl ultricies aliquet. Nunc rutrum semper nibh et porta. In sed tincidunt felis, vel gravida risus. Suspendisse ac sem pellentesque, iaculis ex ac, fermentum massa.
+
+Nam in mollis magna. Suspendisse quam lectus, fermentum quis enim et, mollis ornare tortor. Morbi in sapien ante. Curabitur ut justo purus. Quisque placerat viverra nibh, quis fringilla enim fringilla sit amet. Nunc in rutrum enim, eget placerat felis. Phasellus in metus venenatis, posuere neque tempus, consectetur neque. Duis suscipit id mi laoreet gravida. Vivamus posuere blandit ipsum. Sed sit amet tellus risus.</p>
+
+<div class="relative">
+	<div class="box absolute">
+		부모 태그 안에 생성된 절대 위치 박스
+	</div>
+</div>
+
+<div class="box fixed">고정 위치 박스</div>
+
+</body>
+</html>

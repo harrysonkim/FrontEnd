@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+table {
+	display: inline-block;
+	width: 300px;
+	text-align: left;
+
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+<fieldset style="width: 300px">
+
+	<legend>인적사항</legend>
+
+	<form action="" method="get" >
+
+	<table>
+
+	<tr>
+		<th><label for="userid">아이디</label></th>
+		<th><input type="text" name="userid" id="userid" placeholder="아이디입력"></th>
+	</tr>
+	
+	<tr>
+		<th><label for="userpw">비밀번호</label></th>
+		<th><input type="text" name="userpw" id="userpw"><th>
+	</tr>
+
+	<tr>
+		<th><label for="useremail">이메일</label></th>
+		<th><input type="email" name="useremail" id="useremail"></th>
+	</tr>
+
+	<tr>
+		<th><label for="usergender">성별</label></th>
+		<th>
+		<label><input type="radio" name="usergender" id="usergender" value="m" checked>남</label>
+		<label><input type="radio" name="usergender" id="usergender" value="f">여</label>
+		</th>
+	</tr>
+
+	<tr>
+		<th><label for="married">결혼여부</label></th>
+		<th><input type="checkbox" name="married" id="married"value="y"></th>
+	</tr>
+
+	<tr>
+		<th><label for="location">지역</label></th>
+		<th>
+			<input list="loc" name="location" id="location">
+			<datalist id="loc">
+				<option value="Seoul">서울</option>
+				<option value="gyeonggi">경기</option>
+				<option value="jeolla">전라</option>
+				<option value="gyeongsang">경상</option>
+			</datalist>
+		</th>
+	</tr>
+
+	<tr>
+		<th><label for = "saysomething">하고싶은 말</label></th>
+		<th>
+		<textarea 
+		rows="3" 
+		cols="15" 
+		name="saysometing"
+		id="saysometing"
+		placeholder="입력하세요"></textarea>
+		</th>
+	</tr>
+	
+	<tr>
+		<th></th>
+		<th>
+			<button>제출</button><input type="reset" value="취소">
+		</th>
+	</tr>
+	
+	</table>
+
+	</form>
+
+</fieldset>
+
+
+
+</body>
+</html>

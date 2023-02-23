@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입폼</title>
+</head>
+  <body class="text-center">
+	<main class="form-signin m-auto">
+	  <form id="admLogin" method="post" action="/TNFADM/loginAction.do">
+	    <div class="form-floating idArea">
+	      <input type="text" class="form-control" id="reqLoginId" name="reqLoginId" placeholder="admin" required>
+	      <label for="floatingInput">ID</label>
+	    </div>
+	    <div class="form-floating pwArea">
+	      <input type="password" class="form-control" id="reqLoginPwd" name="reqLoginPwd" placeholder="Password" required>
+	      <label for="floatingPassword">Password</label>
+	    </div>
+	    <button id="loginBtn" type="submit" class="btn btn-lg btn-primary"> 로그인 </button>
+    	<input type="button" id="admRegBtn" class="btn btn-outline-primary" value="관리자 등록 신청">
+	  </form>
+	</main>
+	
+	<div class="reqRegModal">
+		<div class="modal modal-signin d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+			<div class="modal-dialog" role="document">
+		    	<div class="modal-content rounded-4 shadow">
+			      	<div class="modal-header p-5 pb-4 border-bottom-0">
+			        	<h1 class="fw-bold mb-0 fs-2"></h1>
+			        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      	</div>
+					<div class="modal-body p-5 pt-0">
+						<form id="reqAdmReg" class="needs-validation" method="post">
+							<div class="joinIdArea">
+								<div class="form-floating mb-3 joinId">
+									<input type="hidden" id="regID" name="regID">
+									<input type="text" class="form-control rounded-3" id="reqID" name="reqID" placeholder="ID" required>
+									<label for="reqID">ID</label>
+								</div>
+								<input type="button" class="btn btn-primary" id="chkDupID" value="중복확인">
+							</div>
+							<div class="form-floating mb-3">
+								<input type="password" class="form-control rounded-3" id="regPwd" name="regPwd" placeholder="Password" required>
+								<label for="regPwd">Password</label>
+							</div>
+							<div class="form-floating mb-3">
+								<input type="password" class="form-control rounded-3" id="regRePwd" name="regRePwd" placeholder="Re Password" required="true">
+								<label for="regRePwd">Re Password</label>
+							</div>
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control rounded-3" id="regNm" name="regNm" placeholder="Name">
+								<label for="regNm">Name</label>
+							</div>
+							<div class="joinPhoneArea">
+								<input type="hidden" id="phoneAddr" name="phoneAddr">
+								<div class="form-floating mb-3 phoneGroup">
+									<input type="number" class="form-control rounded-3 regPhone" id="regPhone1" placeholder="010">
+									<label id="labelPhone1" for="regPhone1">010</label>
+								</div>
+								-
+								<div class="form-floating mb-3 phoneGroup">
+									<input type="number" class="form-control rounded-3 regPhone" id="regPhone2" placeholder="0000">
+									<label id="labelPhone2" for="regPhone2">0000</label>
+								</div>
+								-
+								<div class="form-floating mb-3 phoneGroup">
+									<input type="number" class="form-control rounded-3 regPhone" id="regPhone3" placeholder="0000">
+									<label id="labelPhone3" for="regPhone3">0000</label>
+								</div>
+							</div>
+							<div class="joinEmailArea">
+								<input type="hidden" id="emailAddr" name="emailAddr">
+								<div class="form-floating mb-3 email">
+									<input type="text" class="form-control rounded-3" id="regEmail1" name="regEmail" placeholder="Email">
+									<label for="reqEmail">Email</label>
+								</div>
+								@
+								<select class="form-select email" id="regEmail2" aria-label="email">
+								  <option selected>선택</option>
+								  <option value="gmail.com">gmail.com</option>
+								  <option value="naver.com">naver.com</option>
+								</select>
+								<input type="button" class="btn btn-primary" id="reqSendMail" value="인증번호 발송">
+							</div>
+							<div class="emailChkArea">
+								<input type="hidden" id="emailCertkey" name="mailCI">
+								<input type="hidden" id="inputCertkey" name="inputCertkey">
+								<div class="form-floating mb-3 checkEmail">
+									<input type="number" class="form-control rounded-3" id="inputKey" name="inputKey" placeholder="인증번호" maxlength="6">
+									<label for="inputKey">인증번호</label>
+								</div>
+								<input type="button" class="btn btn-primary" id="reqChkEmail" value="인증번호 확인">
+							</div>
+							<input type="button" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="reqAdmRegBtn" value="관리자 등록 요청">
+						</form>
+					</div>
+			  	  </div>
+			  	</div>
+			</div>
+		</div>
+		<div class="msgForm" th:style="${#strings.isEmpty(msg) ? 'display: none;' : 'display: block;'}">
+			<div class="msgTitle" th:text="${#strings.isEmpty(msg) ?  '' : msg['title']}"></div>
+			<div class="msgContent" th:text="${#strings.isEmpty(msg) ?  '' : msg['content']}"></div>
+			<div class="msgBtnArea">
+				<button id="msgOk" type="button" class="mb-2 btn btn-lg rounded-3 btn-primary" th:attr="onclick=${#strings.isEmpty(msg) ?  '' : msg['func']}" >확인</button>
+			</div>
+		</div>
+</body>
+</html>

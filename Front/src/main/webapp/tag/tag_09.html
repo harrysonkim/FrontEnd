@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* CSS주석 */
+/* <table> <th> <td> 태그에 스타일 지정 */
+caption,table, th, td {
+	/* 테두리를 적용 */
+	/* 	굵기 선스타일 선의색상 설정 */
+	border: 1px solid white;
+	/* 	겹쳐지는 부분에 대한 설정 */
+	/* collapse 합쳐서 한줄로! */
+	border-collapse: collapse;
+	padding : 5px;
+	text-align: center;
+	background: black;
+	color: white;
+	font-family: fantasy;
+	text-align: center
+}
+</style>
+
+</head>
+<body>
+
+<h1>테이블 태그</h1>
+<h3>colspan속성, rowspan속성</h3>
+<hr>
+
+<table>
+
+	<!-- 열 확장 -->
+	<!-- colspan(column span) : 테이블의 행 갯수에 맞춰 셀 병합 -->
+
+	<!-- 행 확장 -->
+	<!-- rowspan(row span) : 테이블의 열 갯수에 맞춰 셀 병합 -->
+
+<tr>
+
+	<td>1 x 1셀</td>
+	<td colspan="2">1 x 2셀</td>
+	<td rowspan="3">1 x 4셀</td>
+</tr>
+
+<tr>
+
+	<td>2 x 1셀</td>
+	<td>2 x 2셀</td>
+	<td>2 x 3셀</td>
+
+</tr>
+
+<tr>
+	<td colspan="3">3 x 1셀</td>
+
+</tr>
+
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+/* ++인접 형제 선택자++ */
+
+/* h1태그 다음에 p태그가 바로 오는 요소 1개 선택 */
+h1 + p {
+	color: red;
+}
+
+/* h1태그 다음에 오는 h1태그 요소 1개 선택 */
+/* => 없다. */
+h1 + h1 {
+	background-color: green;
+}
+/* -------------------------------------------------- */
+/* ++일반 형제 선택자++ */
+
+/* h1태그를 뒤따르는 모든 p태그 형제 요소 선택 */
+h1 ~ p {
+	border: 1px solid red;
+}
+
+#content h1~p {
+	/* 	글짜 밑줄 */
+	text-decoration: underline;
+}
+/* -------------------------------------------------- */
+/* ++h1태그의 인접 형제 .choco선택++ */
+/* => 선택 대상이 없다 */
+h1 + .choco{
+	color : chocolate;
+}
+
+h1 ~ .choco{
+	background-color : chocolate;
+}
+/* -------------------------------------------------- */
+/* .choco의 인접 형제 .choco */
+.choco + .choco{
+	color : Blue;
+}
+
+p + p {
+	font-style: italic;
+}
+
+
+
+</style>
+</head>
+<body>
+
+	<div>
+		<h1>복합 선택자</h1>
+		<h3>일반 형제, 인접 형제</h3>
+		<hr>
+
+		<div id="content">
+
+			<p>첫번째</p>
+			<h1>두번째</h1>
+			<p>세번째</p>
+			<p class="choco">네번째</p>
+			<p class="choco">다섯번째</p>
+			<h1>여섯번째</h1>
+			<p>일곱번째</p>
+			<p>여덟번째</p>
+			
+		</div>
+
+	</div>
+
+</body>
+</html>
