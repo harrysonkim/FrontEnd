@@ -46,9 +46,57 @@ window.onload = function() {
 	// 초기 기본값을 나타낸다
 	console.log( myForm.data2.defaultValue )
 	
+	//---------------------------------------------------
+
+	// 비활성화 상태 확인 (true)
+	console.log( myForm.btn.disabled )
+
+	// 비활성화 상태 해제 => 활성화 상태로 변경
+	myForm.btn.disabled = false
 	
+	//---------------------------------------------------
+
+	// <select> 노드 객체의 value 속성값은
+	// 선택되어있는 자식 노드인 <option>의 value값을 반환
+	console.log( myForm.sel.value )
 	
+	// <select> 노드 객체의 value 속성값을 지정하면
+	// 같은 value값을 가진 <option>항목을 선택한다
+	myForm.sel.value = 'two'
 	
+	//---------------------------------------------------
+
+	// <textarea> 노드 요소 value값은
+	// 현재 보여지는 (작성된) 내용을 반영
+	myForm.area.value = '긴 텍스트'
+	
+	// <textarea> 노드 요소 innerHTML값은
+	// 기본값을 반영한다
+	myForm.area.innerHTML = 'innerHTML 긴 텍스트'
+	
+	console.log(myForm.area.defaultValue)
+	
+	//---------------------------------------------------
+
+	// <form>태그의 입력값 초기화
+	// <input type = "reset"> 버튼의 동작
+// 	myForm.reset() 
+
+	// <form>태그의 입력된 데이터 전송
+	// <input type = "submit"> 버튼의 동작
+// 	myForm.submit()
+
+	//---------------------------------------------------
+
+	// 체크박스 상태를 확인하고 submit하기
+	if( myForm.chk.checked ){
+		myForm.submit()
+		
+	}else {
+		alert('이용 약관에 모두 동의하세요')
+	}
+
+
 }
 
 </script>
@@ -70,7 +118,9 @@ window.onload = function() {
 	<select name="sel">
 		<option value="one">1</option>
 		<option value="two">2</option>
-	</select>
+	</select><br><br>
+	
+	<textarea name="area">기본값 텍스트</textarea>
 
 
 
