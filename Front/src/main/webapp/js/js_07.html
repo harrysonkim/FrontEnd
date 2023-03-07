@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 문자 => 숫자
+
+console.log( parseInt('123') )
+console.log( parseInt('456ABC') )
+console.log( parseInt('ABASDKJC') )
+console.log( parseInt('456ABC1235') )
+
+console.log( '-------------' )
+
+console.log( parseInt("123.956") ) // 소수점 이하 버림
+console.log( parseFloat("123.956") )
+console.log( parseFloat("123") ) // 소수점 표시X
+
+console.log( '-------------' )
+
+console.log( Number("123.456") )
+console.log( Number("123") )
+
+console.log( '-------------' )
+
+// 숫자 => 문자
+
+// 상수에는 .toString() 함수를 적용할 수 없다
+// console.log( 456.toString() )
+var n1 = 456.89;
+
+console.log( n1.toString() ) // 기본 10진수
+console.log( typeof n1.toString() )
+console.log( "--진수 지정--" )
+console.log( n1.toString(2) ) // 2진수
+console.log( n1.toString(8) ) // 8진수
+console.log( n1.toString(16) ) // 16진수
+
+console.log( '-------------' )
+
+// toFixed 소수점 표현
+var n2 = 3456.7891
+
+console.log( n2.toFixed() ) // 소수점 이하 반올림
+console.log( n2.toFixed(1) ) // 소수점 1자리 반올림
+console.log( n2.toFixed(8) ) // 0으로 채움
+
+console.log( '-------------' )
+
+console.log( String(1234) )
+console.log( typeof String(1234) )
+console.log( String(1234.5678) )
+console.log( typeof String(1234.5678) )
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

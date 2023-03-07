@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+// JS변수 선언
+// 데이터 타입을 종류별로 명시하지 않는다
+// var키워드를 적용
+var n1;
+
+// JS변수값 대입
+// => 데이터타입에 상관없이 같은 변수에 대입 가능
+n1 = 123; // number타입
+n1 = 'Apple'; // string타입
+n1 = true; // boolean타입
+
+console.log( n1 );
+
+console.log( "-----------------" );
+
+// 선언과 동시에 초기화
+var n2 = '34.456';
+
+console.log( "n2", n2, typeof n2 );
+
+console.log( "-----------------" );
+
+var n3 = {a:1, b:2, 789:'Cherry'}
+console.log( n3 );
+
+console.log( "-----------------" );
+
+// Array타입
+var n4 = [ 1,2,3,4,5 ]
+console.log( "n4", n4 );
+console.log( n4.length );
+
+console.log( "-----------------" );
+
+console.log( "a", n3.a );
+
+/* 
+[] 안에 적은 b는 식별자로 인식
+Error, ReferenceError: b is not defined
+console.log( "b", n3[b] );
+*/ 
+console.log( "b", n3['b'] );
+
+/* 
+Number타입을 참조하여 값을 부를때는
+[] 안에 써주거나, 스트링 타입으로 써주어야 한다
+console.log( 789, n3.789 );
+console.log( 789, n3.'789' );
+*/ 
+console.log( 789, n3[789]);
+console.log( 789, n3['789']);
+
+console.log( "-----------------" );
+
+console.log( "0 :", n4[0] );
+console.log( "3 :", n4[3] );
+
+console.log( "-----------------" );
+
+// 빈 배열 생성
+var n5 = [];
+
+// 초기값을 넣어서 배열 생성
+var n6 = ['a', 2, false, null];
+
+// 빈 배열 생성하기 (new 연산자 이용)
+var n7 = new Array()
+console.log( "n7", n7 );
+
+// 요소의 개수(length)를 정해서 배열 생성 (new 연산자 이용)
+var n8 = new Array(10);
+console.log( "n8", n8 );
+
+// 초기값을 넣어서 배열 생성 (new 연산자 이용)
+var n8 = new Array('a', 4, false, {1:2,3:4});
+console.log( "n9", n9 );
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

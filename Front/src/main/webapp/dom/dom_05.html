@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.onload = function() {
+	
+	var content = document.getElementById( "content" )
+	
+	console.log(content)
+
+	var h = ''
+	h += "<ul>"
+	h +=  	"<li>JavaScript</li>"
+	h += 	"<li>DOM</li>"
+	h += 	"<li>innerHTMl</li>"
+	h += "</ul>"
+	
+	content.innerHTML = h
+
+// -----------------------------------------------
+// 	content.innerHTML = "<ul>"	
+// 	content.innerHTML += 	"<li>JavaScript</li>"	
+// 	content.innerHTML += 	"<li>DOM</li>"	
+// 	content.innerHTML += 	"<li>innerHTMl</li>"	
+// 	content.innerHTML += "</ul>"	
+
+//	content.setAttribute( "style", "list-style:none;")
+// -----------------------------------------------
+	
+	var content2 = document.getElementById("content2")
+	
+	content2.innerHTML = "<ul id='u'></ul>"
+	
+	var u = document.getElementById("u")
+	
+// 	u.innerHTML = "<li>javaScript</li>"
+// 	u.innerHTML += "<li>DOM</li>"
+// 	u.innerHTML += "<li>innerHTML</li>"
+
+ 	h = "<li>javaScript</li>"
+ 	h += "<li>DOM</li>"
+ 	h += "<li>innerHTML</li>"
+
+ 	h.innerHTML = h
+//  	document.getElementById("u").innerHTML = h
+ 	
+			
+	
+}
+
+</script>
+</head>
+<body>
+
+<!-- QUIZ. -->
+<!-- div#content안에 innerHTML을 이용하여 추가하기 -->
+
+<!-- ul 목록 -->
+<!--    JavaScript -->
+<!--    DOM -->
+<!--    innerHTML -->
+
+<div id="content"></div>
+<div id="content2"></div>
+
+</body>
+</html>

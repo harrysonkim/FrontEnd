@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+// 변수의 스코프, Scope
+// 변수의 유효범위
+
+// ----------------------------------------------
+
+// Error, 선언되지 않은 변수(식별자)를 사용
+// console.log( datas )
+
+// ----------------------------------------------
+
+// 에러나지 않는다, 변수 선언 이전에 변수를 사용
+console.log("선언 전", num)
+
+var num = 10;
+
+console.log("선언 후", num)
+
+// ** JS엔진은 자바스크립트 코드를 실행하기 전에
+// 정적인시점을 활용하여 선언된 변수를 미리
+// 전부 생성해놓는다
+
+// **단, 초기화(대입)는 진행하지 않는다
+// => undefined 상태
+
+// ** 선언 코드가 있는 변수는 선언 코드 이전에 접근가능
+
+// **호이스팅(Hoisting) 현상
+// 선언된 변수들을 자바스크립트 코드 처음부터
+// 접근할 수 있도록 만드는 현상
+
+//----------------------------------------------------
+
+// 전역 변수, Global Variable
+// Global Variable(전역 스코프)에 선언된 변수
+// <script>태그에 곧바로 선언된 변수
+var global_var = 1234;
+
+//----------------------------------------------------
+
+// +++ Scope +++
+
+// {} 없이 전체를 + Global Scope +
+
+// if() { // + Block Scope +
+	
+// }
+
+// 지역함수Test.3)
+// Error, 함수 스코프를 벗어나서 함수 지역변수 사용 불가
+// console.log("func_var", func_var)
+	
+function func() { // + Function (Block) Scope +
+	// 함수 지역 스코프, + function local scope +
+	// --------------------------------------
+	
+	// 함수 스코프에서 전역 스코프의 변수 사용가능
+	console.log("global_var", global_var)
+	// --------------------------------------
+
+	// 지역함수Test.4) 함수 스코프 안에서 호이스팅(공간 할당)
+	console.log("func_var", func_var) // undefined
+
+	// 함수 지역 변수
+	var func_var = 5678
+	
+	// 지역함수Test.1)
+	console.log("func_var", func_var)
+}
+
+// 지역함수Test.2)
+// Error, 함수 스코프를 벗어나서 함수 지역변수 사용 불가
+// console.log("func_var", func_var)
+
+// 함수 호출
+func();
+
+console.log("-----------------------")
+
+// ++ {}중괄호 블록 ++
+// 블록 지역 스코프, Block local scope
+
+// 블록 스코프 Text.3)
+console.log("block_var", block_var) // undefined
+
+{
+	// 블록 스코프 Text.1)
+	// 블록 스코프는 없는것이나 마찮가지
+	var block_var = 9999;
+	console.log("block_var", block_var)
+}
+
+// 블록 스코프 Text.2)
+console.log("block_var", block_var) // 스코프밖 사용가능
+
+// var 변수는 function스코프에만 적용
+// bloack스코프는 무시
+
+// 제어문 블록 지역 스코프
+for( var i = 0; i <5; i++) {}
+
+// 반복문에선 4가 끝이지만 i값은 i++때문에 5가 된다
+console.log ("i", i)
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

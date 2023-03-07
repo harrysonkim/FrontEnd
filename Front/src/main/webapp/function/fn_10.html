@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// Quiz
+// 현재 시 분 초를 1초마다 출력하기
+
+// console출력
+
+function ShowTime() {
+	
+	var now = new Date();
+	
+	var h = now.getHours();
+	var m = now.getMinutes();
+	var s = now.getSeconds();
+	
+	if ( h<10 ) { h = "0" + h}
+	if ( m<10 ) { m = "0" + m}
+	if ( s<10 ) { s = "0" + s}
+	
+	console.log('1)' + h + '시' + m + '분' + s + '초')
+	
+}
+
+setInterval(ShowTime, 1000);
+
+// -------------------------------------------------
+
+// "문자열".slice(-2)
+// 문자열의 뒷부분부터 2자리의 글자를 추출
+// 시분초를 2자리 숫자로 유지하며 출력
+
+function ShowTime2() {
+	
+	var now = new Date();
+	
+	var h = ('0' + now.getHours()).slice(-2);
+	var m = ('0' + now.getMinutes()).slice(-2);
+	var s = ('0' + now.getSeconds()).slice(-2);
+	
+	console.log('2)' +  h + '시' + m + '분' + s + '초')
+	
+}
+
+// -------------------------------------------------
+
+</script>
+
+</head>
+<body>
+
+
+
+</body>
+</html>

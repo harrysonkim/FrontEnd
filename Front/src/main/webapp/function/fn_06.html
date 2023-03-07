@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 함수 안에 함수를 중첩해서 정의
+function func1() {
+	
+	function func2() {
+		
+		function func3() {
+			
+		}
+		
+	}
+	
+	function fun4() {
+		
+	}
+}
+
+//------------------------------------------------
+
+// 전역 변수
+var nun = 111
+
+// 외부 함수호출
+hello();
+
+// 외부함수정의
+function hello() {
+	// 지역변수 num이 없으면 전역변수 num에 접근
+	// 지역변수 num이 있으면 지역변수 num이 호이스팅
+	console.log( num )
+	//------------------------
+
+	// 외부 함수의 지역변수
+	var num = 222;
+	//------------------------
+
+	// 내부 함수
+	function inner() {
+		
+		// 내부 함수의 지역변수
+		var num = 333;
+		console.log("내부함수", num)
+		
+	}
+	
+}
+
+// 외부 함수호출
+hello();
+
+// 내부 함수 호출
+// Error, 함수가 정의된 스코프를 벗어나서 사용될 수 없다.
+// inner();
+	
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

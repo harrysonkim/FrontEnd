@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 변수 선언하는 법
+var data1 = 123;
+let data2 = 456;
+const data3 = 789;
+
+//---------------------------------------
+
+// var변수는 이미 선언된 변수이름을 다시 사용해도 된다
+// 이전에 만들어진 변수를 가져와서 사용
+var data4 = 77;
+var data4 = 88;
+var data4 = 99;
+
+// Error, let변수는 이미 사용한 변수 이름을 사용할 수 없다
+let data5 = 11;
+// let data5 = 22;
+
+// Error, const변수는 이미 사용한 변수 이름을 사용할 수 없다
+const data6 = 11;
+// const data6 = 22;
+
+//---------------------------------------
+
+// 호이스팅
+// console.log("data7", data7 ) // 에러
+
+let data7 = 55;
+
+console.log("data7", data7)
+//---------------------------------------
+
+// 에러 const변수는 초기화 없이 선언할 수 없다.
+// const data8;
+
+const data8 = 99;
+
+// 에러, const변수는 값을 변경할 수 없다 (상수)
+// data8 = 99;
+
+//---------------------------------------
+
+// 블록 지역 스코프
+{	
+	let block_let = 50;	
+	console.log("bloack_let", block_let)
+}
+
+// 에러, let, const변수는 block, function 스코프 모두 적용
+// console.log("bloack_let", block_let)
+
+for ( let i = 0; i < 10; i++ ) {
+	
+}
+// 에러, 지역스코프에서 선언된것은 블록밖에서 쓸수 없다
+// console.log ('i', i)
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

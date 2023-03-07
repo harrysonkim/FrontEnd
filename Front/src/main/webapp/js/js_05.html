@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// NaN, Not a Number
+
+console.log( NaN )
+console.log( typeof NaN ) // Number
+
+console.log( 567 + NaN ) // NaN (덧셈불가)
+
+console.log( "--------------------" )
+
+// parseInt() 내장함수
+// 매개변수의 문자를 숫자로 변환(치환)하는 함수
+// 문자를 숫자로 "파싱"한다
+console.log( parseInt("123") )// "123" => 123
+console.log( parseInt("678QWER") )// 앞글자 678만 추출
+
+console.log( parseInt("ABC999") ) // 앞글자가 문자로 나오면 추출불가 => NaN
+
+console.log( "--------------------" )
+
+// isNaN() 내장함수
+// 전달인자를 NaN인지 아닌지 확인하는 함수
+// 숫자형식이면 false
+// 숫자형식이 아니면 true
+console.log( isNaN( 123 ) ) // false => number형식
+console.log( isNaN( "Apple" ) ) // true => NaN
+
+console.log( isNaN( "888" ) ) // false => number형식
+console.log( isNaN( "999TEST" ) ) // false => number형식
+
+console.log( "--------------------" )
+
+// 무한대
+console.log( Infinity )
+console.log( +Infinity ) // 양의 무한대
+console.log( -Infinity ) // 음의 무한대
+
+console.log( 123 / 0 ) // +Infinity
+console.log( -888 / 0 ) // -Infinity
+
+// isFinite() 내장함수
+// 매개변수가 Infinity인지 검사
+// 무한대가 아니면 true
+// 무한대면 false
+console.log( isFinite(555) )
+
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

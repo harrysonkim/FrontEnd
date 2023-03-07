@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+console.log( document )
+console.log( '--------------------------------' )
+
+//[DOM API]
+
+// document.getElementById("찾는 아이디 속성값")
+// => id속성의 값이 "찾는 아이디"인 요소 노드를 DOM객체로 반환
+// ------------------------------------------------------------
+
+var h1 = document.getElementById("header1");
+
+// DOM객체 출력 - 요소노드를 찾지 못한다, null 출력
+console.log("h1", h1)
+
+// ** 잘못된 DOM객체, DOM API 사용법
+//	브라우저는 HTML문서를 전부 해석하고 DOM트리를 작성
+//	</html>닫는 태그까지 해석하고 나서 DOM트리가 완성된다
+	
+//	DOM API (document객체의 메소드)는 DOM트리를 기준으로 동작
+	
+//	DOM트리를 완성하기 전에 document객체의 API를 사용하면 안된다
+//	왜? DOM객체를 제대로 찾을 수 없으니까!
+
+// => 브라우저가 HTML문서를 모두 해석하여 DOM트리를 완성할 때까지 기다려야 한다
+
+
+</script>
+
+
+
+
+<script type="text/javascript">
+
+// window객체의 load이벤트 처리 속성 ( == window.onload속성 )
+// 	HTML문서를 끝까지 해석하고 난 뒤에 DOM객체, window객체의 프로퍼티 등이
+//	모두 등록이 완료된 시점에서 처리
+
+// => DOM트리 구성이 완료된 시점에 실행될 코드를 작성할 수 있다
+
+window.onload = function() {
+	
+	console.log("--- window.onload +++")
+	
+	var h2 = document.getElementById("header2")
+	console.log("h2", h2)
+}
+
+</script>
+
+<script type="text/javascript">
+
+function changeBgYellow() {
+	
+	console.log('changeBgYellow call')
+	
+	var h = document.getElementById("header2")
+	h.style.backgroundColor = "Yellow";
+}
+
+function changeBgNone() {
+	console.log('changeBgNone call')
+	
+	var h = document.getElementById("header2")
+	console.log(h)
+	
+	h.style.backgroundColor = "none";
+	
+	
+}
+
+</script>
+
+
+</head>
+<body>
+
+<h1 id="header1" 
+	onmouseenter="console.log('enter')"
+	onmouseleave="console.log('leave')">HEADER TEXT</h1>
+
+<h1 id="header2"
+	onmouseenter="changeBgYellow()"
+	onmouseleave="changeBgNone()">헤더 텍스트</h1>
+
+<script type="text/javascript">
+
+	console.log("--- </body>직전 ---")
+	
+	var h1 = document.getElementById("header1")
+	console.log("h1", h1)
+	
+
+</script>
+</body>
+</html>

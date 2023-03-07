@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.onload = function() {
+	
+	// 모든 id속성값들은 window객체의 property로 등록된다
+	console.log( window.myForm )
+	
+	// window.생략 가능
+	console.log( myForm )
+	
+	// #test 객체
+	console.log( test )
+	
+	//---------------------------------------------------
+	
+	// form태그의 자식들은 <form>노드 요소의 property로
+	// 	name속성값이 등록되어 있다
+	
+	console.log( myForm.data1 ) // = myForm [name=data1] 같은 느낌
+	console.log( myForm.data2 ) // = myForm [name=data2] 같은 느낌
+	
+	//---------------------------------------------------
+
+	// form태그의 name속성값은 document객체의 property로 등록되어있다
+	
+	console.log( document.myFormName )
+	
+	//---------------------------------------------------
+
+	// DOM객체의 표준 속성들은 해당 노드객체의 property로 등록되어 있다
+	
+	document.myFormName.data1.value = 'TEST'
+	
+	//---------------------------------------------------
+
+	// input태그의 value속성은 현재 작성된 값을 나타낸다
+	myForm.data2.value = 'HIHIHIHI'
+	console.log( myForm.data2.value )
+	
+	// defaultValue 속성은 HTMl코드에 작성된
+	// 초기 기본값을 나타낸다
+	console.log( myForm.data2.defaultValue )
+	
+	
+	
+	
+}
+
+</script>
+</head>
+<body>
+
+<h1 id="test">form테스트</h1>
+<h3>축약코드</h3>
+<hr>
+
+<form action="" method="get" id="myForm" name="myFormName">
+
+	<input type="text" name="data1"><br>
+	<input type="text" name="data2" value = "기본값"><br><br>
+	
+	<input type="checkbox" name="chk">	
+	<input type="button" name="btn" disabled="disabled"><br><br>
+	
+	<select name="sel">
+		<option value="one">1</option>
+		<option value="two">2</option>
+	</select>
+
+
+
+</form>
+
+
+</body>
+</html>

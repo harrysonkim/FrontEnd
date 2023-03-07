@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// JS데이터 타입
+// ----------------------------
+
+
+// Number
+console.log(12345)
+console.log(123.45)
+
+// String
+console.log('그 잡체')
+console.log("애쁠애쁠")
+
+// Boolean
+console.log( true )
+// console.log( flase )
+
+// Object (key는 String타입, value는 JS의 모든 타입 가능)
+// key는 '', "" 생략 가능
+console.log({ id:'id_val', pwd:'pwd_val'})
+
+// Array
+// 데이터 상관없이 입력 가능
+console.log([1,2,3,4,5])
+console.log(['a','b','c','d',"e"])
+console.log([1,'b',true,-1,{a:'true'}, ['b', false]])
+
+// typeof연산자
+// 데이터의 자료형을 반환하는 연산자
+
+console.log( typeof(123) )
+console.log( 123 + ":" + typeof(123))
+console.log( 123, typeof(123))
+
+// console.log()를 이용하여 여러 종류의 데이터를
+// 출력할 때는 ,(콤마)로 항목을 구분하여 나열	
+// typeof 데이터 => ()없이 띄어쓰기 가능
+console.log( "ABC", typeof "ABC" )
+console.log( true, typeof true )
+console.log( null, typeof null )
+console.log( undefined, typeof undefined )
+console.log( NaN, typeof NaN )
+console.log( Infinity, typeof Infinity )
+
+// -----------------------------------
+
+console.log( {a:1, b:2}, typeof( {a:1, b:2} ) )
+console.log( [1,2,3], typeof( [1,2,3] ) )
+
+// Array타입은 자바스크립트 내부적으로
+// Object타입을 이용하여 구현되어 있다
+// => typeof 연산자의 결과가 object로 나온다
+
+// -----------------------------------
+
+console.log ( {"0":"Alice", "1":"Bob", "2":"Clare"} )
+console.log ( {0:"Alice", 1:"Bob", 2:"Clare"} )
+
+console.log ( ["Alice", "Bob", "Clare"] )
+
+
+
+
+</script>
+</head>
+<body>
+
+
+
+
+
+
+</body>
+</html>

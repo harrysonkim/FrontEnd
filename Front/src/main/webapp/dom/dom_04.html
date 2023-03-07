@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.onload = function() {
+	
+	var content1 = document.getElementById("content1")
+	console.log(content1)
+	
+	// 기존 내용을 변경한다 (= 연산자)
+	content1.innerHTML = "<h3>innerHTML</h3>"
+	content1.innerHTML += "<p>테스트</p>"
+	content1.innerHTML += "단순 텍스트도 추가 가능"
+	content1.innerHTML += "<hr>"
+	
+	//---------------------------------------------------
+	// 태그도 함께 텍스트로 반환한다
+	console.log( content1.innerHTML )
+	//---------------------------------------------------
+	// 태그 노드를 무시하고 텍스트 노드만 추출하여 반환
+	console.log( content1.innerText )
+	//---------------------------------------------------
+	
+	// innerText로는 줄바꿈을 적용하기 힘들다
+	// innerHTML을 이용하여 <br>을 적용
+	content1.innerText = "<h1>innerText</h1>"
+	content1.innerHTML += "<br>"
+	content1.innerText += "Hello DOM"
+	
+	//---------------------------------------------------
+	
+	var html = ""	
+	html += "<div>"	
+	html += "	<h1>INNER HTML</h1>"	
+	html += "	<h3>텍스트</h3>"	
+	html += "	<hr>"	
+	html += "	<p>태그 텍스트 먼저 작성하기</p>"	
+	html += "</div>"	
+	
+	document.body.innerHTML = html
+	
+	//---------------------------------------------------
+	
+	// <body>태그의 자손들의 태그를 제외하고 텍스트만 출력
+	console.log ( document.body.innerText )
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<div id="content1">
+	CONTENT
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//전역변수 : 데이터 공유, 좋은방법 아님
+//무엇이든 접근가능 , 무결성 깨진다, 동기화 문제
+var result 
+
+//덧셈 함수
+function add(n1,n2) {
+   
+   //전역변수의 덧셈결과 저장
+   result = n1 + n2
+   
+}
+
+// 결과 출력함수
+function print() {
+   
+   //전역변수에 저장된 값 출력하기
+   console.log("result",result)
+}
+
+//덧셈수행
+add(456,890)
+
+//출력
+print();
+
+
+
+//--------------------------
+//콜백 함수
+//함수를 직접 호출해서 사용하지 않고
+//외부의 동작에 의해서 호출되도록 만들어진 함수
+function sum(n1,n2,callback) {
+   
+   //덧셈수행
+   var res = n1 +n2
+   
+   //결과값을 이용한 함수 호출
+   //call black 함수
+   callback(res)
+}
+
+
+//-------------------------
+//결과값을 console로 출력하는 함수
+//직접 호출 안함, func에 맞겨 대신 호출
+function display1(data) {
+   console.log("덧셈결과", data)
+}
+
+//sum함수 호출
+sum(11,22,display1)
+
+
+//-------------------------
+//결과값을  alert 로 띄우는 함수
+function display2(data) {
+   alert("결과값 : " + data)
+}
+
+//sum함수 호출
+sum(55,66,display2)
+
+
+//-------------------------------
+
+// 콜백으로 사용되는 함수를 매번 다르게 적용될 수 있다
+// sum함수의 결과 출력 동작을 다양하게 선택할 수 있다.
+
+//-------------------------------
+
+//익명함수로 콜백함수 전달인자 전달하기
+sum(88,99,function(data){
+   
+   //<body>영역에 출력하기
+   document.write("<h1>" + data + "</h1>")
+   
+})
+
+//--------------------------------
+
+</script>
+</head>
+<body>
+
+
+<button onclick="alert('hi')">테스트</button>
+<button onclick="console.log('hello')">테스트2</button>
+
+<!-- --------------------------------------------------- -->
+
+<!--  <button onclick="display3()">테스트3</button>-->
+
+<!-- --------------------------------------------------- -->
+
+
+<button id="btnTest" >테스트4</button>
+
+<script type="text/javascript">
+
+// id속성값이 btnTest인 요소 객체에
+//onclick 이벤트 발생시
+//호출할 콜백함수를 대입한다.
+btnTest.onclick = function() {
+   console.log("익명함수로 이벤트 처리 콜백함수 적용")
+}
+
+</script>
