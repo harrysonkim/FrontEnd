@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.com_pickRole > img {
+	width: 400px;
+	height: 400px;
+}
+
+.usr_pickRole, .com_pickRole {
+	display: flex;
+	justify-content: center;
+}
+
+.img_R, .img_S, .img_P {
+	width: 200px;
+	height: 200px;
+	margin: 0 10px;
+
+}
+
+h1, h3 {
+	text-align: center;
+}
+

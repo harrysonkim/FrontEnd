@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+		
+		// p태그들 선택하기
+		var $p = $("p")
+		console.log( $p )
+	//----------------------------------------
+		
+	console.log("--- $p[0]  ---")
+	console.log($p[0])
+		
+	console.log("--- $p.eq(1)  ---")
+	console.log($p.eq(1))
+
+	console.log("--- $p.get(2)  ---")
+	console.log($p.get(2)) // JS DOM
+	
+	//----------------------------------------
+
+	// 글자색 빨강으로 설정
+	$p.get(1).style.color = "red"
+	$p.get(1).setAttribute("style", "color:red;")
+	
+	
+	// 글자색 파강으로 설정
+	$p.eq(2).css("color","blue")
+	
+	//----------------------------------------
+
+	// jQuery DOM객체에는 length 속성이 존재
+	// => 선택된 DOM객체의 개수
+	for(var i=0; i< $p.length; i++) {
+		console.log( $p.eq(i) )
+	}
+	
+	//----------------------------------------
+	
+	// jQuery 방식으로 여러 개 요소에 style적용
+	$p.css('border', '1px solid #ccc')	
+	
+	// JS 방식으로 여러 개 요소에 style적용
+	for (var i = 0; i < $p.length; i++) {
+		$p.get(i).style.background = "#0cc"
+	}
+	
+	//----------------------------------------
+
+	$('p').each(function ( i, e ) {
+		console.log("i", i) // 인덱스
+		console.log("e", e) // JS DOM 객체
+
+		console.log("$(e)", $(e)) // jQuery DOM 객체
+		
+		// this키워드 - 반복에 적용된 JS DOM 객체
+		console.log("this", this)
+		
+		// jQuery DOM 객체로!
+		console.log("$(this)", $(this))
+		
+		console.log ("-----------")
+			
+		$('p').each(function() {
+			$(this).css("font-style","italic")
+		})
+	
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+</script>
+
+</head>
+<body>
+
+	<div>
+		<span>하나</span>
+		<p>둘</p>
+		<pre>셋</pre>
+		<p>넷</p>
+		<p>다섯</p>
+	</div>
+
+</body>
+</html>

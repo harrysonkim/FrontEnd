@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+#num1, #num2 {
+
+	width: 80px;
+}
+
+#res {
+	width: 170px;
+}
+
+#correct, #incorrect {
+	width: 100px;
+}
+
+</style>
+
+
+<!-- Math.random() 함수 이용하여 숫자 2개 생성하기 -->
+<!-- 사용자의 입력 받기 -->
+<!-- "결과 확인"버튼을 눌렀을 때 정답/오답 판단 결과 적용 -->
+<!-- ** 태그 내용 수정해도 괜찮음 -->
+<script type="text/javascript">
+
+window.onload= function() {
+//--------------------------------------------------------------------------------	
+/* ---------------------------------- 내가 짠것 ----------------------------------
+var num1 = Math.floor(Math.random() * 10) + 1; // 1부터 10까지의 랜덤한 정수 생성
+var num2 = Math.floor(Math.random() * 10) + 1;
+var correct = 0; // 정답 횟수
+var incorrect = 0; // 오답 횟수
+
+// 랜덤수 <input>태그에 할당
+document.getElementById("num1").value = num1;
+document.getElementById("num2").value = num2;
+
+document.getElementById("chkRes").addEventListener("click", function() {
+  var res = document.getElementById("res").value; // 사용자가 입력한 값 가져오기
+  var answer = num1 * num2; // 정답 계산하기
+  
+  if (res == answer) { // 정답일 경우
+    alert("정답입니다!");
+    correct++; // 정답 횟수 1 증가
+  } else { // 오답일 경우
+    alert("오답입니다!");
+    incorrect++; // 오답 횟수 1 증가
+  }
+  
+  // 횟수 업데이트
+  document.getElementById("correct").value = correct;
+  document.getElementById("incorrect").value = incorrect;
+}); 
+*/
+//--------------------------------------------------------------------
+//------------------------- 강사님 -----------------------------------
+
+	// 구구단 퀴즈 초기화
+	init()
+
+	// 결과확인 버튼 클릭 이벤트 등록
+	chkRes.onclick = play;
+	
+	res.onkeydown = function() {
+		
+// 		console.log("#answer keydown")
+// 		console.log(event)
+// 		console.log(event.keyCode)
+		
+		if( event.keycode == 13) {
+// 			console.log("enter key")
+
+			play();
+		}		
+		
+	}
+	
+} //window.onload = function(){}끝;
+
+function init() {
+	// 구구단 문제 숫자 설정
+	num1.value = randomNumber( 8, 2 ) // 2 ~ 9
+	num2.value = randomNumber( 9, 1 ) // 1 ~ 9
+
+	//정답 입령창 지우기
+	res.value = ""
+	
+	// 정답 입력창에 focus 발생
+	res.focus()
+}
+
+// start부터 시작해서 count개수로 이어진 숫자 중 랜덤
+function randomNumber( count, start ) {
+	return Math.floor( Math.random() * count ) + start
+}
+
+// 구구단 퀴즈 게임 진행 함수
+function play() {
+	console.log("play() 호출")
+	
+	// 정답 숫자를 입력하지 않았을 때 중단
+	if ( res.value == '' ) {
+		alert("문제의 답을 입력하세요")
+		return
+	} 
+	
+	// 정답 오답 판별
+	if (num1.value * num2.value == res.value) {
+		alert("정답입니다!")
+		correct.value++
+	} else {
+		alert("오답입니다!")
+		incorrect.value++
+	}
+	
+	// 구구단 퀴즈 초기화
+	init()
+}
+
+//--------------------------------------------------------------------
+</script>
+
+</head>
+<body>
+
+	<h1>구구단 퀴즈</h1>
+	<hr>
+
+<input type="text" id="num1" readonly> x <input type="text" id="num2" readonly> <br><br>
+= <input type="text" id="res"> 
+
+<hr>
+
+<input type="button" value="결과확인" id="chkRes"><br><br>
+
+정답 횟수 : <input type="text" id="correct" readonly><br>
+오답 횟수 : <input type="text" id="incorrect" readonly>
+
+</body>
+</html>

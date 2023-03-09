@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+// 	노드요소를 찾아 jQuery DOM 객체로 반환
+// 	$("CSS Selelctor")
+// 	--------------------------------------------
+
+	var jQueryP1 = $('#p1')
+
+	console.log("--- jQuery DOM  ---")
+	console.log(jQueryP1)
+	
+// 	--------------------------------------------
+
+	var jsP1 = document.getElementById("p1")
+
+	console.log("--- js DOM  ---")
+	console.log(jsP1)
+	console.log(p1)
+	
+// 	--------------------------------------------
+
+	// 순수 JS DOM객체를 이용한 스타일 지정
+	p1.style.color = 'red'
+		
+	// Error, jQuery DOM객체에 js DOM API 사용 못함
+	// jQueryP1.style.balckground = '#ccc'; 
+	jQueryP1.css("border", "1px solid #ccc")
+	
+// 	--------------------------------------------
+
+	console.log('---- $("p") ----')
+	console.log($("p"))
+
+	// .css()함수는 선택된 요소가 여러 개여도
+	// 각각 style이 적용
+	$("p").css("font-style", "italic")
+
+// 	--------------------------------------------
+
+	// JS DOM 객체
+	var p3 = document.getElementById("p3")
+
+	// jQuery DOM 객체
+	var $p3 = $("#p3")
+// 	--------------------------------------------
+
+	// JS DOM 객체
+	var p2 = document.getElementsByClassName("p2")[0]
+	console.log("p2", p2)
+
+	// JS DOM 객체 -> jQuery DOM 객체 변환
+	var $p2 = $( p2 )
+	console.log("$p2", $p2)
+	
+	
+})
+</script>
+
+</head>
+<body>
+
+<div>
+	<p id="p1">하이</p>
+	<p class="p2">Hello</p>
+	<p id="p3">Welcome</p>
+</div>
+
+</body>
+</html>

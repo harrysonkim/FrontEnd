@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// div의 자식 노드 찾기
+	console.log("--- div > * ---")
+	console.log( $('div').children() ) // div > *
+
+	// div의 자식들의 자식노드 찾기
+	console.log("--- div > * > * ---")
+	console.log( $('div').children().children() ) // div > * > *
+
+	// div의 자식들의 자식 노드 중 #third 찾기
+	console.log("--- div > * > #third ---")
+	console.log( $('div').children().children("#third") ) // 제일 많이 쓰인다
+	console.log( $("div > * > #third ") )
+
+	console.log("---------------------------------")
+
+	console.log("--- #here ---")
+	console.log( $('#here') )
+	
+	console.log("--- #here의 부모 ---")
+	console.log( $('#here').parent() )
+
+	console.log("--- #here의 조상 ---")
+	console.log( $('#here').parents() )
+
+	console.log("--- #here의 조상 중 #third ---")
+	console.log( $('#here').parents("#third") )
+	
+	console.log("---------------------------------")
+	
+	console.log("--- #third의 이전 인접 형제 ---")
+	console.log( $('#third').prev() )
+
+	console.log("--- #third의 이전 일반 형제 ---")
+	console.log( $('#third').prevAll() )
+	
+	console.log("---------------------------------")
+	
+	console.log("--- #third + * ---")
+	console.log( $('#third').next() )
+
+	console.log("--- #third ~ * ---")
+	console.log( $('#third').nextAll() )
+	
+	console.log("---------------------------------")
+
+	$("#here").click(function() {
+		
+		console.log(this)
+		
+		$(this).parent().parent().next().css("color",'red')
+		
+	})
+	
+	
+	
+	
+	
+	
+})
+
+
+</script>
+
+</head>
+<body>
+<div>
+	<ul>
+		<li>하나</li>
+		<li>둘</li>
+		<li id="third">
+			셋
+			<ul>
+				<li>3-1</li>
+				<li id="here">3-2</li>
+				<li>3-3</li>
+			</ul>
+		</li>
+		<li>넷</li>
+		<li>다섯</li>
+	</ul>
+</div>
+
+
+
+</body>
+</html>
