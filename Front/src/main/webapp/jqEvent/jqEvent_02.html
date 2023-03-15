@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+	$('#btnOk').on("click", sayHi)
+	$('#btnOk').on("mouseenter", red)
+	$('#btnOk').on("mouseleave", blue)
+	//-----------------------------------
+	
+	// 이벤트 리스너가 한번씩만 동작한다
+	$('#btnAlert').one({
+		click : sayHi
+		, mouseenter : red
+		, mouseleave : blue
+	})
+	
+	//-----------------------------------
+
+	// on, one 상관없이 click이벤트 리스너 제거
+	$('button').off("click")
+
+	//-----------------------------------
+	
+	// #btnAlert에 dblclick이벤트 리스너 등록
+	$("#btnAlert").dblclick(function() {
+		console.log("#btnAlert dbclick")
+	})
+
+	// #btnAlert에 dblclick이벤트 리스너 등록
+	$("#btnOk").mouseover(function() {
+		console.log("#btnOk mouseover")
+	
+		// #btnAlert에 dblclick이벤트 발생시키기
+		$("#btnAlert").dblclick()
+		$("#btnAlert").trigger("dblclick")
+		
+	})
+	
+	
+
+
+}) // jQuery Event DOM API 끝
+
+// ============== 전역 함수 영역 ====================
+
+// 콘솔이 출력하는 sayHi함수
+function sayHi() {
+	console.log("HIHIHIHIHIHIHI")
+}
+
+function red() {
+// 	console.log(this)
+	$(this).css("color", 'red')
+}
+
+function blue() {
+// 	console.log(this)
+	$(this).css("color", 'blue')
+}
+
+</script>
+</head>
+<body>
+<div id="myDiv">
+	<button id="btnOk">확인</button>
+	<button id="btnAlert">알림</button>
+</div>
+</body>
+</html>

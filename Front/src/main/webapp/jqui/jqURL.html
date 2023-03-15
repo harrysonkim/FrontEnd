@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="styleSheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/start/jquery-ui.css">
+<!-- <link rel="styleSheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
+
+<script type="text/javascript">
+$(function() {
+
+	// #myDiv를 다이얼로그로 설정하기
+// 	$("#myDiv").dialog()
+
+	//---------------------------------------------
+	
+	//옵션을 설정하여 다이얼로그 만들기
+ 	$("#myDiv").dialog({
+ 		autoOpen : false // 기본모습 숨기기 설정
+ 		, draggable : false // 창 이동 불가 설정
+ 		, height : 400 // 높이 설정
+ 		, width : 600 // 넓이 설정
+ 		, title : "API를 이용한 제목 설정"
+ 		, buttons : [
+ 			
+ 			{ 
+ 			text:"좋아요"
+ 			, icon: "ui-icon-heart"
+ 			, click: function() {
+ 		        $( "#myDiv" ).css( "color", "red" ); 
+ 		    	}
+ 			} // 첫번째 버튼
+ 			,
+ 			
+ 			{
+ 			text:"확인"
+ 			, icon: "ui-icon-gear"
+ 			, click: function() {
+ 		        $( this ).dialog( "close" );
+ 		      }
+ 			, iconPosition : "top"
+ 			} // 두번째 버튼
+
+ 			]
+ 	})
+	//---------------------------------------------
+
+	// 버튼 클릭시 다이얼로그 open
+	// + 창의 X버튼에 $("#myDiv").dialog("close")가 API로 적용
+ 	$("#btnDialog").click( () => {
+	 	$("#myDiv").dialog("open")
+ 	})
+
+ 	
+ 	
+ 	
+ 	
+})
+</script>
+
+</head>
+<body>
+
+	<button id="btnDialog" >다이얼로그 오픈!</button>
+
+	<div id="myDiv" title="다이얼로그 제목">
+		<p>안녕하세요</p>
+		<p>다이얼로그 테스트에오</p>
+	</div>
+</body>
+</html>

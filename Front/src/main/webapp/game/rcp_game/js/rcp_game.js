@@ -44,8 +44,12 @@ function play(playerChoice) {
 	if (playerChoice == 0 && computerChoice == 2
 		|| playerChoice == 1 && computerChoice == 0
 		|| playerChoice == 2 && computerChoice == 1) {
+		
+		setInterval()
+		document.querySelector('.change_img').src = imgs[computerChoice];
+	
 		alert(
-			"player 수 : " + playerChoice + " | "+
+			"player 수 : " + playerChoice + " | " +
 			"computer 수 : " + computerChoice +
 			"   " + "이겼습니다" +
 			"(0: 바위, 1: 보, 2: 가위)");
@@ -53,6 +57,9 @@ function play(playerChoice) {
 	
 	// 비기는 경우
 	if (playerChoice == computerChoice){
+
+		document.querySelector('.change_img').src = imgs[computerChoice];
+
 		alert(
 			"player 수 : " + playerChoice + " | "+
 			"computer 수 : " + computerChoice +
@@ -64,6 +71,9 @@ function play(playerChoice) {
 	if (playerChoice == 2 && computerChoice == 0
 		|| playerChoice == 0 && computerChoice == 1
 		|| playerChoice == 1 && computerChoice == 2) {
+
+		document.querySelector('.change_img').src = imgs[computerChoice];
+
 		alert(
 			"player 수 : " + playerChoice + " | "+
 			"computer 수 : " + computerChoice +

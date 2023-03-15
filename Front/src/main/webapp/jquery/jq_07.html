@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> jq_07.html </title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// 새로운 <div>태그 노드 객체 생성
+	var $div = $("<div>")
+
+	// 객체는 생성되었지만 DOM트리에는 추가X
+	console.log( $div )
+	
+	// 새로 생성된 객체 선택 안됨
+	console.log( $("div") )
+	
+	//---------------------------------------------------------------------------
+	
+	var $myDiv = $("div#myDiv")
+	
+	// #myDiv노드의 자식으로 새로운 <div>노드 추가
+	$myDiv.append( $div )
+	
+	//---------------------------------------------------------------------------
+
+	// </div>로 닫아도 되지만, 안 닫아도 된다
+	var $div2 = $("<div>Hello</div>")
+	$myDiv.append( $div2 )
+	
+	//---------------------------------------------------------------------------
+
+	// 태그 사이에 입력될 텍스트 삽입 방법
+	// .html() => .innerHTML속성값 지정
+	$div.html ("처음에 새로 만든 div")
+	
+	//---------------------------------------------------------------------------
+	
+	// <div>생성과 동시에 자식으로 <ul>의 자식으로 <li> 추가
+	var $newDiv =
+		$("<div>")
+			.append( $("<ul>")
+				.append( $("<li>").html("하이") )
+				.append( $("<li>").html("헬로") ) )
+			.append( $("<ul>") 
+				.append( $("<li>").html("HI") )
+				.append( $("<li>").html("Hello") ) )
+			
+	$(document.body).append( $newDiv )
+
+	//---------------------------------------------------------------------------
+
+	// 객체 복사
+	var $cloneDiv = $newDiv.clone()
+	
+	// 각각 나눠 넣기
+// 	$(document.body).append( $("<hr>") )
+// 	$(document.body).append( $cloneDiv )
+	
+	// <hr>에 이어서 넣기
+ 	$(document.body)
+ 		.append( $("<hr>") )
+ 		.append( $cloneDiv )
+	
+	$cloneDiv.append( $("<h1>안녕하세요!</h1>") )
+	
+	//---------------------------------------------------------------------------
+
+	var $newDiv =
+		$("<div>")
+			.append( $("<ul>")
+				.append( $("<li>").html("하이") )
+				.append( $("<li>").html("헬로") ) )
+			.append( $("<ul>") 
+				.append( $("<li>").html("HI") )
+				.append( $("<li>").html("Hello") ) )
+			
+	$(document.body).append( $newDiv )
+
+})
+
+</script>
+
+
+
+</head>
+<body>
+
+<div id="myDiv">
+	<p>안녕</p>
+</div>
+
+</body>
+</html>

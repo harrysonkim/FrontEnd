@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+   
+   $("#upload").change( (e) => {
+	   
+	   $("#preview").html("")
+	   
+	    console.log(e)
+	   
+	    var files = this.files;
+	   
+	    console.log(files)
+	   
+   })
+   
+})
+
+</script>
+
+
+
+</head>
+<body>
+
+<!--  QUIZ -->
+
+<!--  다중 파일 선택 시 선택한 모든 이미지의 미리보기를 보여준다 -->
+<!--  이미지 파일이 아닌건 무시 -->
+
+<input type="file" id="upload" multiple="multiple">
+
+<div id="preview"></div>
+
+
+</body>
+</html>

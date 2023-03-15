@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// div태그에 st4 클래스 항목 추가하기
+	$("div").addClass("st4")
+	// div태그에 st2 클래스 항목 제거하기
+	$("div").removeClass("st2")
+	// div태그에 모든 클래스 항목 제거하기
+	//	설정값들을 모두 제거하기만, class속성은 남아있다
+	$("div").removeClass()
+
+//----------------------------------------------------------------
+
+
+	// CSS를 임베디드 방식으로 관리
+	
+	$("p").addClass('red')
+	$("p").eq(0).addClass('blue')
+	$("p").eq(1).removeClass('red')
+	
+	// red 클래스 항목을 토글한다
+	$("p").eq(2).toggleClass('red')
+
+	// 클릭 이벤트로 인해, 색이 편한다
+	$("div").click(function() {
+		$("p").eq(2).toggleClass('red')
+	})
+
+	//--------------------------------------
+	
+	// HTML 표준 속성 설정
+	$('div').attr("id", "myDiv")
+	// HTML 비표준 속성 설정
+	$('div').attr("asdg", "12345")
+
+	// ** .attr()함수는 HTML 표준, 비표준 속성 모두 설정가능
+
+	//--------------------------------------
+
+	// 스타일 속성 "background" 적용
+	$("p").eq(2).css("background", "orange")
+	// HTML 일반 속성(비표준) "background" 적용
+	$("p").eq(2).attr("background", "tomato")
+	
+	//--------------------------------------
+	
+	$("p").eq(1).attr("style", "width: 200px;")
+	
+	$("div").attr("style", "background: #CCC;")
+	
+	$("p").eq(0).attr("style", "color: tomato !important; border: 1px solid #ccc;")
+
+	// 첫번째 매개변수 - 설정값의 인덱스(순번)
+	// 두번째 매개변수 - 기존에설정된 속성값
+	// 리턴값 - 새롭게 적용될 속성값
+	$("p").eq(0).attr("style", function( i, a) {
+		console.log( i + " / " + a)
+		
+		return a + ' ' + 'font-style: italic !important;'
+	})
+
+	//--------------------------------------
+
+	// HTMl 속성 여러 개를 한번에 설정
+	$("p").eq(1).attr({
+		"a":"1"
+		, "b":"2"
+		, "title":"테스트"
+	})
+
+
+
+})
+
+
+</script>
+<style type="text/css">
+
+.red { color:red; }
+.blue { color:blue; }
+
+
+
+</style>
+
+</head>
+<body>
+
+	<div class='st1 st2 st3' style="width: 300px; height: 200px !important; border: 1px solid red;">
+		<p>하나</p>
+		<p>둘</p>
+		<p>셋</p>
+	</div>
+
+</body>
+</html>

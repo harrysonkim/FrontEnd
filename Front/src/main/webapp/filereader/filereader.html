@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+	$("#upload").change(function(e) {
+		console.log("#upload change")
+		
+//--------------------------------------------------		
+
+// 		// 이벤트 발생 JS DOM 객체
+// 		console.log(this)
+		
+// 	 	// jQuery형식 이벤트 객체
+// 	 	console.log(e)
+
+// 		// js형식 이벤트 객체
+// 		console.log(event)
+		
+//--------------------------------------------------		
+
+		// 이벤트 발생 객체
+// 		console.log(this)
+// 		console.log(e.target)
+// 		console.log(event.target)
+
+//--------------------------------------------------		
+
+		// 선택된 파일 리스트
+		console.log(this.files)
+		console.log(e.target.files)
+		console.log(event.target.files)
+		
+//--------------------------------------------------		
+
+		// 선택된 파일
+		var files = e.target.files
+		console.log(files)
+
+		// 선택된 파일이 이미지가 아닐 경우
+		if( !files[0].type.includes("image") ) {
+			alert("이미지가 아닙니다!")
+			
+			// 선택한 파일 해제
+			e.target.value = ""
+			$(e.target).value =("")
+			
+			// 이벤트 처리 중단
+			return
+			
+		} 
+		
+//--------------------------------------------------		
+		console.log("이미지 선택")
+		
+		// FileReader객체 생성
+		var reader = new FileReader()
+		
+		// ** FileReader객체 메소드
+		// FileReader객체.readAsText( File )
+		// 		파일객체를 텍스트 정보로 읽어들인다
+		
+		// FileReader객체.readAsDataURL( File )
+		//		파일 객체를 DataURL형식으로 읽어들인다
+		
+		// ** DataURL
+		// 1) 바이너리 파일을 Base64인코딩을 적용하여 
+		// ASCII 문자 형태로 표현한 것
+		// 2) 텍스트 데이터처럼 활용할 수 있다.
+		// 	=> 원본 바이너리 데이터를 유지할 수 있다
+		// 	=> 형식 
+		//		data:[MIME타입][;base64],<실제데이터>
+
+		// ** DataURL을 URL주소로 사용할 수 있다
+		// ** <img>태그의 src속성으로 DataURL을 적용할 수 있다
+
+//---------------------------------------------------------
+
+		// FileReader객체가 파일을 전부 읽어들여
+		// 메모리에 데이터가 로드 되었을 때
+		// 발생하는 load이벤트 처리 코드
+		reader.onload = function( ev ) {
+			
+// 			console.log("ev", ev ) // 이벤트 객체
+// 			console.log("ev.target", ev.target ) // FileReader객체
+
+			console.log(ev.target.result)
+			
+			// Error, 미리보기가 계속 추가된다
+// 			$("<img>")
+// 			.attr({
+// 				src : ev.target.result
+// 				, width : 300
+// 				, height : 200
+// 			})
+// 			.appendTo( $("div#preview"))
+				
+			// 새 파일 등록마다 미리보기 변경
+			 $("div#preview").html(
+				$("<img>")
+				.attr({
+					src : ev.target.result
+					, width : 300
+					, height : 200
+				})
+			 )
+		}
+		
+//---------------------------------------------------------
+
+		// 선택된 파일을 읽어들이기
+// 		reader.readAsText( files[0] ) // 문자 형식
+		reader.readAsDataURL( files[0] ) // DataURL형식
+
+		// 선택된 파일의 내용 확인하기
+		// => 잘못 사용됨
+		// => null값 출력된다
+		// => readAsDataURL()은 비동기적으로 실행됨
+		// => 파일의 내용을 다 불러들이기 전에 실행
+		console.log(reader.result)
+	
+//---------------------------------------------------------
+
+
+
+
+
+	})
+
+})
+</script>
+
+</head>
+<body>
+
+<h1>FileReader를 이용한 이미지 미리보기</h1>
+<hr>
+
+<!-- <input id="upload" type="file" multiple="multiple"> -->
+<input id="upload" type="file" >
+
+<div id="preview"></div>
+
+
+</body>
+</html>

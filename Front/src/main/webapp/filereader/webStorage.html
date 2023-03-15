@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	// 웹 저장소, 웹 스토리지, Web Storage API
+	// HTML5에서 추가된 WEB API 중 하나
+	
+	// 웹 어플리케이션에서 사용자의 데이터(정보)를
+	// 브라우저에 저장하는 기술
+	
+	// 쿠키(Cookie)의 단점을 보완한 방식
+	
+	console.log( window.Storage )
+	
+	if ( typeof Storage !== "undefined" ) {
+		
+		console.log( "웹 스토리지 사용 가능" )
+		
+		// 웹 스토리지 객체1
+		// sessionStorage
+		// 하나의 세션이 유지되는 동안 데이터를 보관
+		// 브라우저 창을 닫을 때까지 유지되는 저장소
+		
+		// **세션 - 서버와 클라이언트가 연결된 상태
+		
+		//---------------------------------------------
+		
+		// 웹 스토리지 객체2
+		// localStorage
+		// 브라우저 창을 닫아도 유지되는 데이터 저장소
+		
+		//---------------------------------------------
+		
+		console.log("sessionStorage", sessionStorage)	
+		console.log("localStorage", localStorage)
+		
+		//---------------------------------------------
+		
+		sessionStorage.data1 = 123		
+		console.log( sessionStorage.data1 )
+
+		sessionStorage["data2"] = 456		
+		console.log( sessionStorage["data2"] )
+		
+		sessionStorage.setItem("data3", 789)		
+		console.log( sessionStorage.getItem("data3") )
+		
+		console.log("------------------------")
+		console.log( sessionStorage )
+		
+		//-----------------------------------------------
+		
+		// 특정 데이터 삭제하기
+		sessionStorage.removeItem("data2")
+		console.log(sessionStorage)
+		
+		//-----------------------------------------------
+
+		// 모든 데이터 삭제
+// 		sessionStorage.clear()
+		console.log(sessionStorage)
+		
+		//-----------------------------------------------
+
+		sessionStorage.setItem("세션 저장소", "세션테스트")		
+		localStorage.setItem("세션 저장소", "로컬테스트")		
+
+		console.log("sessionStorage",sessionStorage)
+		console.log("localStorage",localStorage)
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	} else {
+		
+		console.error("웹 스토리지 객체 없음")
+
+	}
+	
+</script>
+</head>
+<body>
+	<a href="./webStorage_test.html">테스트 페이지</a>
+</body>
+</html>

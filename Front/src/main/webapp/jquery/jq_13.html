@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var $chk1 = $("input[type='checkbox']").eq(0)
+	var $chk2 = $("input[type='checkbox']").eq(1)
+	
+	console.log( $chk1 )
+	console.log( $chk2 )
+
+	console.log( "----------------------------" )
+
+	// ** checked 속성을 다루는 DOM API
+	
+	// ** .attr()함수는 String타입으로 HTML속성값을 관리한다
+	// ** .prop()함수는 Boolean타입으로 JS객체의 프로퍼티값을 관리한다
+	
+	console.log( $chk1.attr("checked") ) //checked (String)
+	console.log( $chk2.prop("checked") ) //true (Boolean)
+
+	console.log( "----------------------------" )
+
+	// JS DOM API 활용해보기
+	console.log( $chk1.get(0).getAttribute("checked") )	
+	console.log( $chk2.get(0).checked )	
+	
+	console.log( "----------------------------" )
+	
+	// jQuery DOM 활용하기
+	
+	// 체크 상태 설정시 Boolean타입 사용가능
+	$chk1.attr("checked", false) // 기본값 상태 확인가능(정적)
+	// 체크 상태 설정시 Boolean타입 사용가능
+	$chk2.prop("checked", false) // 실시간 상태 확인가능(동적)
+
+
+})
+
+
+</script>
+
+
+</head>
+<body>
+
+	<label>확인1 <input type="checkbox" checked="checked"> </label> |
+	<label>확인2 <input type="checkbox" checked="checked"> </label>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var str = "apple banana cherry application"
+
+// +++ 1.문자열.match(정규식) +++
+console.log( str.match( /apple/ ) )
+console.log( str.match( /banana/ ) )
+console.log( str.match( /fineapple/ ) ) // null
+console.log( "-------------------------------" )
+// g 플래그 없음
+// app을 1개만 찾는다
+console.log( str.match( /app/ ) ) 
+
+// g 플래그 있음
+// app을 전체에서 있는만큼 찾는다 (* global => g )
+console.log( str.match( /app/g ) ) 
+
+//------------------------------------------------------
+
+console.log( "-------------------------------" )
+// +++ 2. 문자열.replace( 정규식, 교체문자열 ) +++
+var res1 = str.replace( /app/, 'TEST' )
+// var res1 = str.replace( "app", 'TEST' ) => 기능은 같음
+
+console.log( str ) // 원본
+console.log( res1 )  // 수정 후
+
+//------------------------------------------------------
+console.log( "-------------------------------" )
+
+var res2 = str.replace( /app/g, 'NEXT' )
+console.log( str ) // 원본
+console.log( res2 ) // 수정 후
+
+//------------------------------------------------------
+console.log( "-------------------------------" )
+
+// +++ 3.정규식.test( 문자열 ) +++
+console.log( /app/.test( str ) ) // 있나 없나만 확인
+console.log( /app/g.test( str ) ) // 범위에 상관없이 있나 없나만 확인
+
+//------------------------------------------------------
+console.log( "-------------------------------" )
+
+// +++ 4.정규식.exec( 문자열 ) +++
+console.log( /app/.exec( str ) )
+console.log( /app/g.exec( str ) )
+
+//------------------------------------------------------
+console.log( "-------------------------------" )
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

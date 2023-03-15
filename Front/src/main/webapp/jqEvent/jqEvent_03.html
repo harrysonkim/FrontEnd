@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	
+	$("input[name = 'msg']").focus()
+	
+	// +++ 전송버튼 눌렀을 때 얼럿 +++
+	$("#btnSend").click( function(e) {
+		
+		// 입력값이 없을 때 처리 중단
+		if ( $(this).prev().val() == '' ) {
+			alert ("[WARNING] 내용을 입력하세요")
+			
+			return
+		}
+		
+// 		var input = $("input[name = 'msg']")
+
+// 		alert( input.val() )
+// 		input.val(); // 입력창 초기화
+// 		input.focus(); // 입력창 포커스
+		
+		//-------------------------------
+		
+		var input =	$(this).prev()
+	
+		console.log( $(this) )
+		console.log( input )
+		
+		alert( input.val() )
+		input.val(); // 입력창 초기화
+		input.focus(); // 입력창 포커스
+
+		// 		console.log("input keydown")
+
+// 		console.log("this", this) // 이벤트발생노드객체
+// 		console.log("event", event) // 발생한 이벤트 JS객체
+// 		console.log("e", e)
+		
+	})
+
+	
+	// +++ input에서 엔터 쳤을 때 얼럿 +++
+	$("input[name = 'msg']").keypress( function(e) {
+
+// 		console.log("input keydown")
+
+// 		console.log("this", this) // 이벤트발생노드객체
+// 		console.log("event", event) // 발생한 이벤트 JS객체
+// 		console.log("e", e)
+	
+// 		// ------------------------------
+		
+// 		// 입력된 키보드 키의 종류 (값) 확인
+// 		console.log(event.keyCode) // js방법
+// 		console.log(e.keyCode) // jQuery
+		
+// 		// ------------------------------
+		var input = $(this).prev()
+
+		if(e.keyCode == 13){
+			
+// 			var input = $("input[name = 'msg']")
+	
+			// #btnSend 객체에 클릭 발생시키기
+// 			$('#btnSend').trigger("click")
+			$('#btnSend').click()
+			
+			
+		}
+
+	})
+
+	//---------------------------
+	
+	// +++ #btnSend 버튼 비활성화 +++
+	$("#btnSend").prop("disabled", true) // 1. 초기
+	
+	// up -> input에 키를 땔때마다 함수실행 
+	// down -> input에 키를 누르고 있을때마다 함수실행
+// 	$("input[name = 'msg']").keydown(function() { // 2. 동적
+	$("input[name = 'msg']").keyup(function() { // 2. 동적
+		console.log( "Keyup", $(this).val() )
+		
+		// 입력된 값이 남앙 있는지 판단해서 #btnSend 활성/비활성
+		if ( $(this).val() == '') {
+			// 내용물이 있을때 버튼 활성화
+			$("#btnSend").prop("disabled", true)
+		}else {
+			// 내용물이 없을때 버튼 활성화
+			$("#btnSend").prop("disabled", false)
+		}
+		
+	})
+	
+	
+})
+</script>
+</head>
+<body>
+<div>
+	<input type="text" name="msg">
+	<button id="btnSend">전송</button>
+</div>
+</body>
+</html>
