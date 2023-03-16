@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+$( () => {
+
+	$("#btnPostcode").click( () => {
+
+		var width_v = "100%" //팝업의 너비
+		var height_v = "100%" //팝업의 높이
+
+		new daum.Postcode({
+		  	
+			oncomplete: (data) => { 
+
+				console.log( data.zonecode )
+				console.log( data.roadAddress )
+				console.log( data.jibunAddress )
+				console.log( data.userSelectedType )
+			
+				var postcode = $("#postcode").val( data.zonecode )			
+				var jibunAddress = $("#address").val( data.jibunAddress )			
+				var roadAddress =$("#address").val( data.roadAddress )			
+				
+				if ( data.userSelectedType == "J") {
+					postcode
+					jibunAddress
+				} else if ( data.userSelectedType == "R" ) {
+					postcode
+					roadAddress
+				} 
+
+				//-------------------------------------
+
+				// 상세주소 지우기
+				$("#address_detail").val("")
+
+				// 상세주소에 포커스 주기
+// 				$("#address_detail").focus()
+				$("#address_detail").trigger("focus")
+				
+				//-------------------------------------
+				
+				//닫기 버튼 누르는 이벤트
+				$("#postcodeWrap .closeIcon").click()
+				// js dispatch event 도전
+// 				var event = new Event("focus")
+// 				document.getElementById("address_detail").dispatchEvent(event);
+
+			} // oncomplate 끝	      
+		    , width: width_v
+		    , height: height_v
+		    
+// 		}).open({
+		}).embed( postcodeWrap );
+		
+		// 우편번호 div보여주기
+		$("#postcodeWrap").css("display", "block")
+		
+	}) // 우편번호 찾기 클릭시 open 끝
+	
+		// X버튼 클릭시 닫기
+		$("#postcodeWrap .closeIcon").click( function() {
+// 			$("#postcodeWrap .closeIcon").css("display", "none")
+			$(this).parent().css("display", "none")
+		})
+		
+})
+</script>
+<style type="text/css">
+
+#postcodeWrap {
+	position: relative;
+	
+	width: 600px;
+	height: 450px;
+	
+	display: none;
+	
+	padding-right:  15px;
+}
+
+#postcodeWrap .closeIcon {
+	position: absolute;
+	
+	right: 0;
+	top: 0;
+	
+	cursor : pointer;
+	
+	z-index: 9999;
+
+	width : 10px;
+	background: #ccc;
+	padding: 3px;	
+}
+
+</style>
+</head>
+<body>
+
+<button id="btnPostcode">우편번호 찾기</button><br>
+<input id="postcode" type="text" placeholder="우편번호"><br>
+<input id="address" type="text"  placeholder="주소"><br>
+<input id="address_detail" type="text"  placeholder="상세주소">
+
+<div id="postcodeWrap">
+<!-- 	<span class="closeIcon">X</span> -->
+	<img class="closeIcon" alt="close" src="../resources/imgs/close.png">
+</div>
+
+</body>
+</html>

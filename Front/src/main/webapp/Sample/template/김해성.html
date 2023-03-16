@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$( () => {
+
+	$("form").submit(function() {
+		
+		if( !fn_validation() ) {
+			return false
+		} 
+		
+	})
+
+	   //유효성 검증 에러 메시지 초기화
+	   $("#id").focus(function(){
+	      $("#errorMsg_Id").html("")
+	   })
+	   $("#id").blur(function(){
+	      $("#errorMsg_Id").html("필수 입력 항목입니다.")
+	   })
+	   $("#pwd").focus(function(){
+	      $("#errorMsg_Pwd").html("")
+	   })
+	   $("#pwd").click(function() {
+		   $("#errorMsg_Pwd").html("영문자, 숫자, 특수문자 포함 8 ~ 32자")
+		})
+	   $("#pwd").blur(function(){
+	      $("#errorMsg_Pwd").html("필수 입력 항목입니다.")
+	   })
+	   $("#pwdChk").focus(function(){
+	      $("#errorMsg_PwdChk").html("")
+	   })
+	   $("#pwdChk").blur(function(){
+	      $("#errorMsg_PwdChk").html("필수 입력 항목입니다.")
+	   })
+	   
+}) // jQuery DOM 끝
+
+// 유효성 검증
+// function fn_validation() {
+	   
+// 	   //-----ID 유효성 검증-----
+	   
+// 	   // 아이디를 입력했는 지 검증
+// 	   if( $("#id").val()=='' ){
+// 	      $("#errorMsg").html("필수 입력 항목입니다")
+// 	      return false
+// 	   }
+	   
+// 	   //----PASSWORD 유효성 검증-----
+// 	   // +++ 1. 패스워드를 입력하지 않았을 때 검증
+
+// 	   if ( $("#pwd").val() == '' ){
+// 	      $("#errorMsg_Pwd").html("필수 입력 항목입니다")
+// 	      return false
+// 	   }   
+
+// 	   if ( $("#pwd").val() == '' ){
+// 	      $("#errorMsg").html("필수 입력 항목입니다")
+// 	      return false
+// 	   }   
+
+// 	   if ( $("#pwd_Chk").val() == '' ){
+// 	      $("#errorMsg").html("필수 입력 항목입니다")
+// 	      return false
+// 	   }   
+	   
+// 	   // +++ 2. 패스워드 입력값 검증
+// 	   var pwReg = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*\-_+=]){8,32}$/
+// 	   if( !pwReg.test( $("#pwd").val() ) ){
+// 		   $("#errorMsg_Pwd").html("영문자, 숫자, 특수문자 포함 8 ~ 32자")
+// 	      return false
+// 	   }   
+	   
+// 	   // 유효성 검증 성공 (submit 수행)
+// 	   console.log("수행성공")
+// 	   alert(3)
+// 	   return true
+	   
+// } // 유효성 체크 끝
+
+
+</script>
+<style type="text/css">
+
+#button_parent {
+	padding-top: 50px;
+}
+
+.errorMsg {
+	color : red;
+	float: right;
+}
+
+.border_First {
+	border : 1px solid blue;
+/* 	background: blue; */
+	margin: 0;
+	padding: 100px;
+}
+.border_second {
+	border : 1px solid #ccc;
+	background: #ccc;
+	margin: 10 auto;
+	height: 70%;
+}
+
+tr>th {
+	text-align: left;
+}
+
+form {
+	margin: 15px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+input {
+    color:black;
+	background-color: #ccc; 
+	border-style:dashed;
+    border-top-width:0px; 
+    border-bottom-width:1px; 
+    border-left-width:0px; 
+    border-right-width:0px;
+}
+
+button {
+	color: green;
+	width : 450px;
+	height : 50px;
+	margin: 0 auto;	
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="border_First">
+<div class="border_second">
+<form action="" method="post">
+<table>
+
+<tr>
+	<th>
+		아이디
+	</th>
+	<td>
+		<input id="id" size="40" maxlength="32"  type="text">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_Id" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		패스워드
+	</th>
+	<td>
+		<input id="pwd" size="40" maxlength="32" type="text">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_Pwd" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		패스워드 확인
+	</th>
+	<td>
+		<input id="pwdChk" size="40" maxlength="32" type="text">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_PwdChk" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		이메일
+	</th>
+	<td>
+		<input id="email_Id" size="15" maxlength="15" type="email">
+		@
+		<input id="email_Select" size="15" maxlength="15" type="email">
+	</td>
+</tr>
+<tr>
+	<th>
+		주소
+	</th>
+	<td>
+		<input id="addres" size="40" maxlength="32" type="text">
+	</td>
+</tr>
+<tr>
+	<th></th>
+	<td>
+		<input id="address_Detail" size="40" maxlength="32" type="text">
+	</td>
+</tr>
+</table>
+	<div id="button_parent">
+		<button id="join" type="submit">가입</button>
+	</div>
+</form>
+</div> 
+<!-- 안쪽 테두리 -->
+</div>
+<!-- 바깥쪽 테두리 -->
+
+</body>
+</html>

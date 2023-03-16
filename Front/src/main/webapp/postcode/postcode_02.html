@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+$( () => {
+
+	$("#btnPostcode").click( () => {
+
+		var width_v = 500; //팝업의 너비
+		var height_v = 600; //팝업의 높이
+
+		new daum.Postcode({
+		  	
+			oncomplete: (data) => { 
+
+				console.log( data.zonecode )
+				console.log( data.roadAddress )
+				console.log( data.jibunAddress )
+				console.log( data.userSelectedType )
+			
+				var postcode = $("#postcode").val( data.zonecode )			
+				var jibunAddress = $("#address").val( data.jibunAddress )			
+				var roadAddress =$("#address").val( data.roadAddress )			
+				
+				if ( data.userSelectedType == "J") {
+					postcode
+					jibunAddress
+				} else if ( data.userSelectedType == "R" ) {
+					postcode
+					roadAddress
+				} 
+
+				$("#address_detail").focus()
+				$("#address_detail").trigger("focus")
+
+				// js dispatch event 도전
+// 				var event = new Event("focus")
+// 				document.getElementById("address_detail").dispatchEvent(event);
+
+			} // oncomplate 끝	      
+		    , width: width_v
+		    , height: height_v
+		    
+		}).open({
+			
+				q: '순환로'
+				, left: (window.screen.width / 2) - (width_v / 2)
+			  	, top: (window.screen.height / 2) - (height_v / 2)
+
+		});
+		
+		
+	})
+
+})
+</script>
+
+</head>
+<body>
+
+<button id="btnPostcode">우편번호 찾기</button><br>
+<input id="postcode" type="text" placeholder="우편번호"><br>
+<input id="address" type="text"  placeholder="주소"><br>
+<input id="address_detail" type="text"  placeholder="상세주소">
+</body>
+</html>

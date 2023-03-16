@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+
+var width_v = 500; //팝업의 너비
+var height_v = 600; //팝업의 높이
+
+new daum.Postcode({
+	  	
+	oncomplete: function(data) { console.log( data )} // oncomplate 끝	      
+    , width: width_v
+    , height: height_v
+
+}).open({
+	
+		q: '순환로'
+		, left: (window.screen.width / 2) - (width_v / 2)
+	  	, top: (window.screen.height / 2) - (height_v / 2)
+
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

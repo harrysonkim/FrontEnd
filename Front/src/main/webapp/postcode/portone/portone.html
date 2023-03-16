@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script type="text/javascript">
+
+// console.log( window.IMP )
+
+// 가맹점 코드 초기화
+IMP.init("imp54437811"); // 예: imp00000000a
+
+// 결제창 띄우는 함수
+function requestPay() {
+  IMP.request_pay({
+    pg: "tosspay.{imp54437811}", // pg사 선택
+    pay_method: "card", // 결제수단
+    merchant_uid: "test_lfapej3j",   // 고유 주문번호
+    name: "집으로 가는 지하철",
+    amount: 100, //결제 금액
+   	display: {
+	    card_quota: [3]  // 할부개월 3개월까지 활성화
+    },
+
+    buyer_email: "harryson92@gmail.com",
+    buyer_name: "김해성",
+    buyer_tel: "010-8381-5984",
+    buyer_addr: "서울특별시 강남구 신사동",
+    buyer_postcode: "01181"
+
+   }, function (rsp) { // callback
+    if (rsp.success) {
+      // 결제 성공 시 로직
+      console.log(rsp);
+   
+      IMP.request_pay({
+    	  /* 결제 요청 객체를 채워주세요. */
+    	  m_redirect_url: "{리디렉션 될 URL}"
+    	}, /* callback */); // 리디렉션 방식의 경우 callback은 실행되지 않습니다.
+      
+      
+    } else {
+      // 결제 실패 시 로직
+      console.log(rsp);
+
+    }
+   
+   
+   
+  });
+}
+
+</script>
+</head>
+<body>
+	<button onclick="requestPay()">결제</button>
+</body>
+</html>
