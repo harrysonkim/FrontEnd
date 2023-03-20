@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style>
+        body{
+            background-color: #deeaf6;
+        }
+        .body-center{
+            border: 1px solid gainsboro;
+            width: 600px;
+            background-color: #ededed;
+            font-weight: bold;
+            position: absolute;
+            height: 450px;
+            left: calc( (100% - 600px) / 2 );
+            top: calc( (100% - 450px) / 2 );
+        }
+        input{
+            border: 0;
+            border-bottom: 3px dashed;
+            background: none;
+        }
+
+        .cnt-area{
+            width: 70%;
+            margin: 50px auto 20px auto;
+        }
+
+        .cnt-area div {
+            margin: 20px 0px 30px 0px;
+        }
+
+        div label{
+            display: inline-block;
+            margin-left: 20px;
+            width: 30%;
+        }
+
+        div input {
+            width: 60%;
+        }
+
+        .btn-area{
+            text-align: center;
+        }
+        .btn-area button{
+            background-color: #c5e0b5;
+            width: 95%;
+            height: 45px;
+            font-weight: bold;
+            border: 0px;
+            margin: 10px;
+        }
+
+        .email-area input {
+            width: 26%;
+        }
+        #regAddr2{
+            margin: 20px 0px 0px 0px;
+        }
+        .red{
+            color: red;
+            float: right;
+            display: block;
+            padding-right: 15px;
+        }
+    </style>
+<script>
+$( () => {
+   	
+	// input의 부모태그인 'div의 id, pwd, pwd-chk (-area)'에서 click이벤트가 실행됬을때,
+    $(".id-area, .pwd-area, .pwd-chk-area").on('click', function(){
+
+    	var textCnt = "영문 대/소문자 특수문자, 숫자 포함 8~32자리";
+
+    	///////////////////////////////////
+	   	// span태그가 없을때 실행할 조건 //
+    	///////////////////////////////////
+        if(!$(this).children('span').length){
+           	
+           	// if문 조건의 반환값 (콘솔 확인용)
+			console.log("span태그가 없을때 반환값(boolean)" ,!$(this).children('span').length )
+               
+			// input태그의 id, pwd, pwd-chk (-area)중 pwd에 출력할 textCnk변경
+			// 한줄에 쓰면 {} 중괄호 생략 가능
+			if( !$(this).hasClass('pwd-area') ) textCnt = "필수 입력 항목 입니다.";
+	            
+           	// id pwd pwd-chk (-area)의 마지막 요소에 span태그 추가
+        	$(this).append('<span class="red">'+ textCnt +'</span>');
+
+        /////////////////////////////////////
+        //// span태그가 있을때 실행할 조건 //
+        /////////////////////////////////////
+		} else { 
+
+			// input태그의 부모태그인 'div의 id, pwd, pwd-chk (-area)'중 pwd가 존재할 경우 (무조건 실행)
+			if($(this).hasClass('pwd-area')){
+				 
+				// if문 조건의 반환값 (콘솔 확인용)
+				console.log("pwd클래스가 있을경우 반환값(boolean)", $(this).hasClass('pwd-area') )
+			 
+				// id pwd pwd-chk (-area)의 자식요소 span태그에 텍스트 변경
+				$(this).children('span').html(textCnt);
+			
+			}
+
+			$(this).children('span').css('display', 'block');    
+		}
+	   	
+	});
+	
+	$(".id-area, .pwd-area, .pwd-chk-area").on('focusout', function(){
+	    if($(this).children("input").val().length > 0 ) {
+	        $(this).children('span').css('display', 'none');
+	    } else{
+	        $(this).children('span').html('필수 입력 항목 입니다.');
+	    }
+	});
+});
+</script>
+</head>
+<body>
+    <div class="body-center">
+        <form class="cnt-area">
+            <div class="id-area">
+                <label for="regID" class="regID">아이디</label>
+                <input type="text" name="regID" id="regID" class="regID">
+            </div>
+            <div class="pwd-area">
+                <label for="regPwd" class="regPwd">패스워드</label>
+                <input type="text" name="regPwd" id="regPwd" class="regPwd">
+            </div>
+            <div class="pwd-chk-area">
+                <label for="regPwdChk" class="regPwdChk">패스워드 확인</label>
+                <input type="text" name="regPwdChk" id="regPwdChk" class="regPwdChk">
+            </div>
+            <div class="email-area">
+                <label for="regEmail">이메일</label>
+                <input type="text" name="regEmail" id="regEmail1"> @ <input type="text" name="regEmail2" id="regEmail2">
+            </div>
+            <div class="addr-area">
+                <label for="regAddr1">주소</label>
+                <input type="text" name="regAddr1" id="regAddr1">
+                <label for="regAddr2"></label>
+                <input type="text" name="regAddr2" id="regAddr2">
+            </div>
+            <div class="btn-area">
+                <button type="submit">가 입</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

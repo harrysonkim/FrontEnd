@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$( () => {
+
+	//////////////////////////
+	//   +++ ID +++
+	//////////////////////////
+
+	// 아이디를 입력하지 않고 포커스를 잃을시 안내
+	$("#id").blur(function(){
+		if( $("#id").val().length == 0){
+			 $("#errorMsg_Id").html("필수 입력 항목입니다.")
+			 $("#errorMsg_Id").css("display","block")
+		}
+	})
+
+	// 아이디에 포커스시 안내문구 초기화
+	$("#id").focus(function(){
+		$("#errorMsg_Id").html("")
+	})
+	
+	//////////////////////////
+	//   +++ Password +++
+	//////////////////////////
+
+	// 패스워드 클릭시 입력조건 안내
+	$("#pwd").click(function() {
+			$("#errorMsg_Pwd").html("영문자, 숫자, 특수문자 포함 8 ~ 32자")
+			$("#errorMsg_Pwd").css("display","block")
+			$("#errorMsg_Pwd").css("color","gray")
+	})
+
+	// 아무것도 입력하지 않고 포커스를 잃을시 안내
+	$("#pwd").blur(function(){
+		if( $("#pwd").val().length == 0){
+			$("#errorMsg_Pwd").html("필수 입력 항목입니다.")
+			$("#errorMsg_Pwd").css("display","block")
+			$("#errorMsg_Pwd").css("color","red")
+		}
+	})
+
+	/////////////////////////////
+	//   +++ Password Check +++
+	/////////////////////////////
+	
+	// 비밀번호 재확인 포커스 잃을시 안내
+	$("#pwdChk").blur(function(){
+		if( $("#pwdChk").val().length == 0){
+			$("#errorMsg_PwdChk").html("필수 입력 항목입니다.")	
+			$("#errorMsg_PwdChk").css("display","block")
+		}
+	})
+
+	// 비밀번호 재확인 포커스시 초기화
+	$("#pwdChk").focus(function(){
+		$("#errorMsg_PwdChk").html("")
+		$("#errorMsg_PwdChk").css("display","none")
+	})
+	   
+}) // jQuery DOM 끝
+</script>
+
+<style type="text/css">
+.errorMsg {
+	color : red;
+	float: right;
+	display: none;
+}
+
+.border_First {
+	border : 1px solid blue;
+	background: rgb(194, 231, 255);
+	margin: 50px;
+	padding: 50px;
+}
+.border_second {
+	border : 1px solid rgb(128, 128, 128);
+	background: rgb(206, 206, 206);
+	margin: 0 auto;
+	width: 50%;
+	height: 70%;
+}
+td, th{
+	height: 10px;
+}
+
+tr>th {
+	text-align: left;
+}
+
+form {
+	margin: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+input {
+    color:black;
+	background-color: rgb(206, 206, 206); 
+	border-style:dashed;
+    border-top-width:0px; 
+    border-bottom-width:2px; 
+    border-left-width:0px; 
+    border-right-width:0px;
+}
+
+
+button {
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgb(178, 252, 178);
+	color: green;
+	width : 450px;
+	height : 50px;
+	margin: auto 0;	
+	margin-top: 50px;
+	border: 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="border_First">
+<div class="border_second">
+<form action="" method="post">
+<table>
+
+<tr>
+	<th>
+		아이디
+	</th>
+	<td>
+		<input id="id" size="40" maxlength="32"  type="text" autocomplete="off">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_Id" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		패스워드
+	</th>
+	<td>
+		<input id="pwd" size="40" maxlength="32" type="text"  autocomplete="off">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_Pwd" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		패스워드 확인
+	</th>
+	<td>
+		<input id="pwdChk" size="40" maxlength="32" type="text"  autocomplete="off">
+	</td>
+</tr>
+<tr>
+	<td colspan="3">
+		<span id="errorMsg_PwdChk" class="errorMsg"></span>
+	</td>
+</tr>
+<tr>
+	<th>
+		이메일
+	</th>
+	<td>
+		<input id="email_Id" size="15" maxlength="15" type="email"  autocomplete="off">
+		@
+		<input id="email_Select" size="15" maxlength="15" type="email">
+	</td>
+</tr>
+<tr>
+	<th>
+		주소
+	</th>
+	<td>
+		<input id="addres" size="40" maxlength="32" type="text"  autocomplete="off">
+	</td>
+</tr>
+<tr>
+	<th></th>
+	<td>
+		<input id="address_Detail" size="40" maxlength="32" type="text"  autocomplete="off">
+	</td>
+</tr>
+</table>
+		<button id="join" type="submit">가입</button>
+</form>
+</div> 
+<!-- 안쪽 테두리 -->
+</div>
+<!-- 바깥쪽 테두리 -->
+
+</body>
+</html>
