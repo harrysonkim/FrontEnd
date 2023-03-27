@@ -76,9 +76,9 @@ button {
 						<table class="table text-center align-middle col-10">
 						<tr class="bg-secondary bg-opacity-25">
 							<th class="col-2">상품명</th>
-							<th class="col-2">작성자</th>
-							<th class="col-4">작성 내용</th>
-							<th class="col-3">리뷰상태 변경</th>
+							<th class="col-1">작성자</th>
+							<th class="col-7">작성 내용</th>
+							<th class="col-2">리뷰상태 변경</th>
 						</tr>
 						
 						<tr>
@@ -92,26 +92,80 @@ button {
 							
 								<!-- Modal -->
 								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-									<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+									<div class="modal-dialog modal-dialog-centered modal-lg">
 										<div class="modal-content">
 											
 											<div class="modal-header">
-												<h1 class="modal-title fs-5" id="exampleModalLabel">작성 내용</h1>
+												<div class="container">
+													<div class="row">
+														<h1 class="modal-title fs-5 fw-bold col-3" id="exampleModalLabel">문의 내용</h1>
+														<div class="col-4">
+															<div class="badge bg-primary text-wrap" style="width: 6rem;">작성일</div>
+															<div class="d-inline"> 2023-03-27</div>
+														</div>
+														<div class="col-6"></div>
+													</div>
+												</div>
+												
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											
 											<div class="modal-body">
-											<div class="mb-3">
+												<div class="container-fluid">
+													<div class="row">
+													<div class="col-4">
+														<img src="../resources/imgs/OmiraMeal.jpg" class="img-thumbnail" alt="...">											
+													</div>
+													<div class="col-8">
+
+														<table class="table">
+														  <thead>
+														    <tr>
+														      <th scope="col">상품명	</th>
+														      <th scope="col">옵션1</th>
+														      <th scope="col">옵션2</th>
+														      <th scope="col">작성자</th>
+														    </tr>
+														  </thead>
+														  <tbody class="table-group-divider">
+														    <tr>
+														      <th scope="row">test상품1</th>
+														      <td>red</td>
+														      <td>red</td>
+														      <td>김씨</td>
+														    </tr>
+														    <tr>
+														      <th scope="row">test상품2</th>
+														      <td>blue</td>
+														      <td>blue</td>
+														      <td>오씨</td>
+														    </tr>
+														    <tr>
+														      <th scope="row">test상품3</th>
+														      <td>black</td>
+														      <td>black</td>
+														      <td>구씨</td>
+														    </tr>
+														  </tbody>
+														</table>
+													</div>
+													
+													</div>
+
+													<div class="mt-3">
+														<p class="form-control text-start" style="height: 100px">내용</p>
+													</div>
+													<hr>													
+													<div class="modal-header">
+														<h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">답변 내용</h1>
+													</div>
+													<div class="form-floating">
+														<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+														<label for="floatingTextarea2">답변을 작성해주세요</label>
+													</div>
+												</div>
+											</div>
 											
-											
-											</div>
-											<div class="mb-3">
-											  <label for="message-text" class="col-form-label">내용</label>
-											  <textarea class="form-control" id="message-text">
-											  사는가 싶이 살았으며 그들의 그림자는 천고에 사라지지 않는 것이다 이것은 현저하게 일월과 같은 예가 되려니와 그와 같지 못하다 할지라도 창공에 반짝이는 뭇 별과 같이 산야에 피어나는 군영과 같이 이상은 실로 인간의 부패를
-											  </textarea>
-											</div>
-											</div>
 											<div class="modal-footer">
 											  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
 											  <button type="button" class="btn btn-primary">저장</button>
